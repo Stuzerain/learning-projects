@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Magic 8 Ball</title>
+    <meta charset="utf-8">
+    <script>
+        function shakeBall() {
+            var word1 = ["Seems", "Hardly", "Very", "Extremely", "Not", "Somewhat", "It is", "Most", "Sources say...", "Almost", "Certainly", "About", ""];
+            var word2 = ["Likely", "Unlikely", "Possible", "Impossible", "Certain", "Uncertain", "Probable", "Improbable"];
+
+            var rand1 = Math.floor(Math.random() * word1.length);
+            var rand2 = Math.floor(Math.random() * word2.length);
+
+            var probability = word1[rand1] + " " + word2[rand2];
+            alert(probability);
+        }
+        shakeBall();
+    </script>
+</head>
+<body></body>
+</html>
