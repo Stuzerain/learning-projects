@@ -173,24 +173,13 @@ var Wyoming = {
 var name;
 var running = true;
 
-function askAboutState() {
-    var answer; 
-    while (running = true) {
-        name = prompt("Please enter the name of a state or territory:");
-        if (states.indexOf(name) >= 0) {
-            answer = (states.indexOf(name));
-            alert("The capital of " + states[answer] + " is " + capitals[answer] + " and its abbreviation is " + abbreviations[answer]);
-        }
-        else {
-            alert("Input not recognized. Please enter a valid state or territory:");
-        }
-    }
-}
-//this is the old function for the arrays
-
+//work in progress--returns undefined on alert
 function stateInfo() {
     while (running = true) {
         name = prompt("Please enter the name of a state or territory in camel case: (ex: westVirginia)");
-       //not finished
+        alert("The capital of " + (name).place + " is " + (name).capital 
+        + " and its abbreviation is " + (name).abbreviation);
     }
 }
+
+stateInfo();
