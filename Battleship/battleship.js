@@ -14,7 +14,7 @@ var view = {
 };
 
 var model = {
-	boardsize: 7,
+	boardSize: 7,
 	numShips: 3,
 	shipLength: 3,
 	shipsSunk: 0,
@@ -56,14 +56,14 @@ var model = {
 
 			generateShipLocations: function() {
 				var locations; 
-				for (var i = 0; i<this.numShips; i = i+1) {
+				for (var i = 0; i < this.numShips; i = i+1) {
 					do {
 						locations = this.generateShip();
 					} while (this.collision(locations));
 					this.ships[i].locations = locations;
 					}
-					console.log("Ships array: ");
-					console.log(this.ships);
+				console.log("Ships array: ");
+				console.log(this.ships);
 				},
 
 			generateShip: function() {
@@ -90,7 +90,7 @@ var model = {
 			},
 
 			collision: function(locations) {
-				for (var i = 0; i<this.numShips; i = i+1) {
+				for (var i = 0; i < this.numShips; i = i+1) {
 					var ship = this.ships[i];
 					for (var j = 0; j<locations.length; j = j+1) {
 						if (ship.locations.indexOf(locations[j]) >= 0) {
