@@ -19,7 +19,8 @@ var model = {
 	shipLength: 3,
 	shipsSunk: 0,
 
-	ships: [{ locations: [0, 0, 0], hits: ["", "", ""] },
+	ships: [
+			{ locations: [0, 0, 0], hits: ["", "", ""] },
 			{ locations: [0, 0, 0], hits: ["", "", ""] },
 			{ locations: [0, 0, 0], hits: ["", "", ""] } 
 		],
@@ -59,8 +60,10 @@ var model = {
 					do {
 						locations = this.generateShip();
 					} while (this.collision(locations));
-					this.ships[i].locations = location;
+					this.ships[i].locations = locations;
 					}
+					console.log("Ships array: ");
+					console.log(this.ships);
 				},
 
 			generateShip: function() {
@@ -69,10 +72,10 @@ var model = {
 
 				if (direction === 1) {
 					row = Math.floor(Math.random() * this.boardSize);
-					col = Math.floor(Math.random() * (this.boardSize - this.shipLength));
+					col = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
 				} else {
+					row = Math.floor(Math.random() * (this.boardSize - this.shipLength + 1));
 					col = Math.floor(Math.random() * this.boardSize);
-					row = Math.floor(Math.random() * (this.boardSize - this.shipLength));
 				}
 
 				var newShipLocations = [];
@@ -120,14 +123,14 @@ function parseGuess(guess) {
 	if (guess === null || guess.length !== 2) {
 		alert("Please enter a letter and a number on the board.");
 	} else {
-		firstChar = guess.charAt(0);
+		var firstChar = guess.charAt(0);
 		var row = alphabet.indexOf(firstChar);
 		var column = guess.charAt(1);
 
 		if (isNaN(row) || isNaN(column)) {
 			alert("Oops, that's not on the board.");
 		} else if (row < 0 || row >= model.boardSize || 
-							column < 0 || column >= model.boardSize) {
+						column < 0 || column >= model.boardSize) {
 				alert("Oops, that's not on the board.");
 			} else {
 				return row + column;
@@ -138,7 +141,7 @@ function parseGuess(guess) {
 
 function handleFireButton() {
 	var guessInput = document.getElementById("guessInput");
-	var guess = guessInput.value;
+	var guess = guessInput.value.toUpperCase();
 	controller.processGuess(guess);
 	guessInput.value = "";
 };
