@@ -108,3 +108,47 @@ const questions = [
         ]
     }, 
 ]
+
+const continents = [
+    asia = [
+        "Kabul", "Yerevan", "Baku", "Manama", "Dhaka", "Thimphu", "Bandar Seri Begawan", 
+        "Phnom Penh", "Beijing", "Nicosia", "Tbilisi", "New Delhi", "Jakarta", "Tehran", 
+        "Baghdad", "Tokyo", "Amman", "Nur-Sultan", "Kuwait City", "Bishkek", "Vientiane",
+        "Beirut", "Kuala Lumpur", "Malé", "Ulaanbaatar", "Naypyidaw", "Kathmandu", "Pyongyang",
+        "Muscat", "Islamabad", "Manila", "Doha", "Moscow", "Riyadh", "Singapore", "Seoul", 
+        "Sri Jayawardenepura Kotte", "Damascus", "Taipei", "Dushanbe", "Bangkok", "Dili",
+        "Ankara", "Ashgabat", "Abu Dhabi", "Tashkent", "Hanoi", "Sana'a"
+    ],
+
+    europe = [
+        "Tirana", "Andorra la Vella", "Yerevan", "Vienna", "Baku", "Minsk", "Brussels", 
+        "Sarajevo", "Sofia", "Zagreb", "Nicosia", "Prague", "Copenhagen", "Tallinn", 
+        "Helsinki", "Paris", "Tbilisi", "Berlin", "Athens", "Budapest", "Reykjavik", 
+        "Dublin", "Rome", "Nur-Sultan", "Pristina", "Riga", "Vaduz", "Vilnius", 
+        "Luxembourg", "Valetta", "Chisinau", "Monaco", "Podgorica", "Amsterdam", "Skopje", 
+        "Oslo", "Warsaw", "Lisbon", "Bucharest", "Moscow", "San Marino", "Belgrade",
+        "Bratislava", "Ljubljana", "Madrid", "Stockholm", "Bern", "Ankara", "Kiev",
+        "London", "Vatican City"
+    ],
+
+    africa = [
+        "Algiers", "Luanda", "Porto-Novo", "Gaborone", "Ouagadougou", "Gitega", "Praia",
+        "Yaounde", "Bangui", "N'Djamena", "Moroni", "Kinshasa", "Brazzaville", "Yamooussoukro",
+        "Djibouti", "Cairo", "Malabo", "Asmara", "Mbabane (administrative) and Lobamba (legistlative/royal)",
+        "Addis Ababa", "Libreville", "Banjul", "Accra", "Conakry", "Bissau", "Nairobi", "Maseru", 
+        "Monrovia", "Tripoli", "Antananarivo", "Lilongwe", "Bamako", "Nouakchott", "Port Louis",
+        "Rabat", "Maputo", "Windhoek", "Niamey", "Abuja", "Kigali", "São Tomé", "Dakar",
+        "Victoria", "Freetown", "Mogadishu", "Juba", "Khartoum", "Dodoma", "Lomé", "Tunis",
+        "Pretoria (administrative), Cape Town(legistlative), Bloemfontein (Judicial)",
+        "Kampala", "Lusaka", "Harare"
+    ],
+
+    americas = [
+        "Saint John's", "Nassau", "Bridgetown", "Belmopan", "Ottawa", "San Jose", "Havana",
+        "Roseau", "Santo Domingo", "San Salvador", "Saint George's", "Guatemala City", 
+        "Port-au-Prince", "Tegucigalpa", "Kingston", "Mexico City", "Managua", "Panama City",
+        "Basseterre", "Castries", "Kingstown", "Port of Spain", "Washington, D.C.", 
+        "Buenos Aires", "Sucre (de jure), La Paz (seat of government", "Brasilia", "Santiago",
+        "Bogotá", "Quito", "Georgetown", "Asunción", "Lima", "Paramaribo", "Montevideo", "Caracas"
+    ]
+]
