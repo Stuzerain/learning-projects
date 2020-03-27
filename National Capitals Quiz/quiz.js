@@ -104,8 +104,10 @@ const continents = {
     }
 }
 
-const questions = [
-    {
+const questions = {
+    numAnswers: 4,
+
+    multChoice: {
         question: "What is the capital of the United Arab Emirates?",
         answers:[
             { text: "Abu Dhabi", correct: true },
@@ -114,21 +116,66 @@ const questions = [
             { text: "", correct: false }
         ]
     }
-]
+}
 
-var wrongAnswerAsia = function() {
-    let wrong = continents.asia.capitals[Math.floor(Math.random() * continents.asia.capitals.length)]
-    for (var i = 1; i < questions.answers[i]; i = i+1) {
-        if (wrong == questions.answers[0].text) {
-            wrongAnswerAsia
-        } else {
-            return wrong
-        }
-        questions.answers[i] = wrong
-        }
-    }
+questions.fillWrong()
 
-wrongAnswerAsia
+// Attempt 1:
+//let wrongAnswerAsia = function() {
+//    let wrong = continents.asia.capitals[Math.floor(Math.random() * continents.asia.capitals.length)]
+//    for (var i = 1; i < questions.answers[i]; i = i+1) {
+//        if (wrong == questions.answers[0].text) {
+//            wrongAnswerAsia
+//        } else {
+//            return wrong
+//        }
+//        questions.answers[i] = wrong
+//        }
+//    }
+
+// Attempt 2:
+//let generateWrong = function() {
+//    const randomAsia = continents.asia.capitals[Math.floor(Math.random() * continents.asia.capitals.length)]
+//    for (var i = 0; i < questions.answers[i]; i = i+1) {
+//        if (questions.answers[i].correct == false) {
+//            questions.answers[i].text = randomAsia
+//        } else {
+//            questions.answers[i].text = questions.answers[i].text
+//        }
+//    }
+//}
+
+// Attempt 3 (method of const 'questions'?):
+//fillWrong: function() {
+//    var answer;
+//    for (var i = 0; i < this.numAnswers; i = i+1) {
+//        do {
+//            answer = this.generateWrongAsia()
+//        } while (this.checkRedundant(answers))
+//        this.multChoice.answers[i].text = answer
+//    }
+//},
+//
+//generatewrongAsia: function() {
+//    let new = continents.asia.capitals[Math.floor(Math.random() * continents.asia.capitals.length)]
+//    let newAnswers = []
+//
+//    newAnswers.push(new)
+//},
+//
+//checkRedundant: function(answers){
+//let correct = questions.multChoice.answers[0].text
+//let new = (continents.asia.capitals[Math.floor(Math.random() * continents.asia.capitals.length)])
+//
+//for (var i = 0; i < this.numAnswers; i = i+1) {
+//    let check = this.multChoice.answers[i].text
+//    for (var j = 0; j < this.multChoice.answers.length; j = j+1)
+//        if (check == correct) {
+//            return false
+//   
+//        }
+//    } return true
+//}
 
 startButton.addEventListener("click", startGame)
 nextButton.addEventListener("click", () => {
