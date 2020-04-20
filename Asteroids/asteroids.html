@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asteroids</title>
     <style></style>
+    <script type = "text/javascript" src = "./neural-network.js"></script>
 </head>
 
 <body>
     <canvas id="gameCanvas" width ="1050" height="750"></canvas>
 
     <script>
-        const FPS = 30; //Frames Per Second
+        const FPS = 144; //Frames Per Second
         const SHIP_SIZE = 45; //height in pixels
         const TURN_SPEED = 360; //turn speed in degrees per second
         const SHIP_THRUST = 5; //acceleration of ship in pixels/second/second
         const FRICTION = 0.7; //'friction' so you don't zoom off forever
-        const ROIDS_NUM = 3 //starting number of asteroids
+        const ROIDS_NUM = 3; //starting number of asteroids
         const ROIDS_SIZE = 100; //starting size of asteroids in pixels
         const ROIDS_SPD = 50; //max starting speed in pixels/second
         const ROIDS_VERT = 10; //average number of vertices on asteroids
         const ROIDS_JAG = 0.4; //'jaggedness' or irregularity of asteroids: 0=none, 1=lots
-        const SHOW_BOUNDING = false; //show/hide collision bounding
-        const SHOW_CENTER_DOT = false; //toggles center dot of ship for testing
         const SHIP_EXPLODE_DUR = 0.3; //duration of ship's explosion
         const SHIP_INV_DUR = 3; //duration of invulnerability on ship spawn
         const SHIP_BLINK_DUR = 0.1; //duration of ship blinks to indicate invulnerability
@@ -37,8 +36,23 @@
         const ROID_PTS_MD = 50; //points for medium asteroid destroyed
         const ROID_PTS_SM = 100; //points for small asteroid destroyed
         const SAVE_KEY_SCORE = "highScore"; //save key for local storage of high score
-        const SOUND_ON = true; //mute sounds TODO
-        const MUSIC_ON = true; //mute music TODO
+
+        //developer flags
+        const AUTOMATION_ON = false; //automation
+        const SHOW_BOUNDING = false; //show/hide collision bounding
+        const SHOW_CENTER_DOT = false; //toggles center dot of ship for testing
+        const SOUND_ON = true; //mute sounds toggle
+        const MUSIC_ON = false; //mute music toggle
+
+        //neural network parameters
+        const NUM_INPUTS = 4;
+        const NUM_HIDDEN = 20;
+        const NUM_OUTPUTS = 1;
+        const NUM_SAMPLES = 500000; //number of training samples
+        const OUTPUT_LEFT = 0; //expected neural output for turning left
+        const OUTPUT_RIGHT = 1; //expected neural output for turning right
+        const OUTPUT_THRESHOLD = 0.05; //how close prediction must be to commit to an action
+        const RATE_OF_FIRE = 15; //shots per second
 
         /** @type {HTMLCanvasElement} */ 
         var canv = document.getElementById("gameCanvas");
@@ -48,9 +62,47 @@
         var level, lives, roids, ship, text, textAlpha, score, scoreHigh;
         newGame();
 
+       //set up neural network
+       var nn, aiShootTime = 0;
+       if (AUTOMATION_ON) {
+            nn = new NeuralNetwork(NUM_INPUTS, NUM_HIDDEN, NUM_OUTPUTS);
+
+            //train the network
+            var ax, ay, sa, sx, sy;
+            for (let i = 0; i < NUM_SAMPLES; i++) {
+               
+                //random asteroid location (include off-screen data)
+                ax = Math.random() * (canv.width + ROIDS_SIZE) - ROIDS_SIZE / 2;
+                ay = Math.random() * (canv.height + ROIDS_SIZE) - ROIDS_SIZE / 2;
+
+                //ship's angle and position
+                sa = Math.random() * Math.PI * 2;
+                sx = ship.x;
+                sy = ship.y;
+
+                //calculate angle to asteroid
+                let angle = angleToPoint(sx, sy, sa, ax, ay);
+
+                //determine the direction to turn
+                let direction = angle > Math.PI ? OUTPUT_LEFT : OUTPUT_RIGHT;
+
+                //train the network
+                nn.train(normalizeInput(ax, ay, angle, sa), [direction]);
+            }
+        }
+
+        function angleToPoint(x, y, bearing, targetX, targetY) {
+            let angleToTarget = Math.atan2(-targetY + y, targetX - x);
+            let diff = bearing - angleToTarget;
+            return (diff + Math.PI * 2) % (Math.PI * 2);
+        }
+
+        //game loop
+        setInterval(update, 1000 / FPS);
+
         //set up sound effects
-        var fxLaser = new Sound("sounds/laser.m4a", 3, 0.2);
-        var fxExplode = new Sound("sounds/explode.m4a", 1, 0.5);
+        var fxLaser = new Sound("sounds/laser.m4a", 3, 0.075);
+        var fxExplode = new Sound("sounds/explode.m4a", 1, 0.2);
         var fxHit = new Sound("sounds/hit.m4a", 5, 0.2);
         var fxThrust = new Sound("sounds/thrust.m4a", 1 , 0.25);
 
@@ -149,12 +201,9 @@
             textAlpha = 1.0;
         }
 
-        //game loop
-        setInterval(update, 1000 / FPS);
-
         function keyDown(/** @type {KeyboardEvent} */ ev) {
 
-            if (ship.dead) {
+            if (ship.dead || AUTOMATION_ON) {
                 return;
             }
 
@@ -163,20 +212,20 @@
                     shootLaser();
                     break;
                 case 37: //left arrow rotates ship left
-                    ship.rot = TURN_SPEED / 180 * Math.PI / FPS;
+                    rotateShip(false);
                     break;
                 case 38: //up arrow accelerates ship
                     ship.thrusting = true;
                     break;
                 case 39: //right arrow rotates ship right
-                    ship.rot = -TURN_SPEED / 180 * Math.PI / FPS;
+                    rotateShip(true); 
                     break;
             }
         }
 
         function keyUp(/** @type {KeyboardEvent} */ ev) {
 
-            if (ship.dead) {
+            if (ship.dead || AUTOMATION_ON) {
                 return;
             }
 
@@ -261,6 +310,21 @@
                 }
             }
 
+            function normalizeInput(roidX, roidY, roidA, shipA) {
+                //normalize the values to between 0 and 1
+                let input = [];
+                input[0] = (roidX + ROIDS_SIZE / 2) / (canv.width + ROIDS_SIZE);
+                input[1] = (roidY + ROIDS_SIZE / 2) / (canv.height + ROIDS_SIZE);
+                input[2] = roidA / (Math.PI * 2);
+                input[3] = shipA / (Math.PI * 2);
+                return input;
+            }
+
+            function rotateShip(right) {
+                let sign = right ? -1 : 1;
+                ship.rot = TURN_SPEED / 180 * Math.PI / FPS * sign;
+            }
+
             function shootLaser() {
                 //create ship laser
                 if (ship.canShoot && ship.lasers.length < LASER_MAX) {
@@ -336,6 +400,52 @@
             var blinkOn = ship.blinkNum % 2 == 0;
             var exploding = ship.explodeTime > 0; //ship is exploding if explodeTime > 0
 
+            //use neural net to rotate ship and shoot
+            if (AUTOMATION_ON) {
+
+                //compute closest asteroid
+                let c = 0; //closest index
+                let dist0 = distBetweenPoints(ship.x, ship.y, roids[0].x, roids[0].y);
+                for (let i = 1; i < roids.length; i++) {
+                    let dist1 = distBetweenPoints(ship.x, ship.y, roids[i].x, roids[i].y);
+                    if (dist1 < dist0) {
+                        dist0 = dist1; 
+                        c = i;
+                    }
+                }
+
+                //make prediction based on current data
+                let ax = roids[c].x;
+                let ay = roids[c].y;
+                let sx = ship.x;
+                let sy = ship.y;
+                let sa = ship.a;
+                let angle = angleToPoint(sx, sy, sa, ax, ay);
+                
+                let predict = nn.feedForward(normalizeInput(ax, ay, angle, sa)).data[0][0];
+
+                //make a turn
+                let dLeft = Math.abs(predict - OUTPUT_LEFT);
+                let dRight = Math.abs(predict - OUTPUT_RIGHT);
+                if (dLeft < OUTPUT_THRESHOLD) {
+                    rotateShip(false);
+                } else if (dRight < OUTPUT_THRESHOLD) {
+                    rotateShip(true);
+                } else {
+                    //stop rotating
+                    ship.rot = 0;
+                }
+
+                //shoot lasers
+                if (aiShootTime == 0) {
+                    aiShootTime = Math.ceil(FPS / RATE_OF_FIRE);
+                    ship.canShoot = true;
+                    shootLaser();
+                } else {
+                    aiShootTime--;
+                }
+            }
+
             //tick music
             music.tick();
 
@@ -345,8 +455,8 @@
 
             //thrust function
             if (ship.thrusting && !ship.dead) {
-                ship.thrust.x += SHIP_THRUST * Math.cos(ship.a) / FPS;
-                ship.thrust.y -= SHIP_THRUST * Math.sin(ship.a) / FPS;
+                ship.thrust.x += (SHIP_THRUST * Math.cos(ship.a) / FPS) / 4;
+                ship.thrust.y -= (SHIP_THRUST * Math.sin(ship.a) / FPS) / 4;
                 fxThrust.play();
 
                 //draw thrust
@@ -568,6 +678,13 @@
 
                 //rotate ship
                 ship.a += ship.rot;
+
+                //keep ship angle between 0 and 360 (2Pi) for predictions
+                if (ship.a < 0) {
+                    ship.a += (Math.PI * 2)
+                } else if (ship.a >= (Math.PI * 2)) {
+                    ship.a -= (Math.PI * 2);
+                }
 
                 //move ship
                 ship.x += ship.thrust.x;
