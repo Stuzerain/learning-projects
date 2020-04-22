@@ -12,6 +12,7 @@
     const HEIGHT = 900; //pixels
     const PADDLE_SPD = 0.7; //fraction of screen width/second
     const BALL_SPD = 0.5; //starting ball speed in fraction of screed width/second
+    const MAX_BOUNCE_ANGLE = 5 * Math.PI / 12; //max bounce angle when ball hits paddle (75 degrees)
 
     //derived dimensions
     const WIDTH = HEIGHT * 0.9; 
@@ -182,6 +183,7 @@
     }
 
     function updateBall(delta) {
+        var intersectX, intersectY, relativeIntersectX, bounceAngle, ballSpeed;
         ball.x += ball.xv * delta;
         ball.y += ball.yv * delta;
 
@@ -197,15 +199,29 @@
             ball.yv = -ball.yv;
         }
 
-        //bounce ball off paddle
+        //bounce ball off paddle - SIMPLE BOUNCE
+        //if (ball.y > paddle.y - paddle.h * 0.5 - ball.h * 0.5
+        //    && ball.y < paddle.y
+        //    && ball.x > paddle.x - paddle.w * 0.5 - ball.w * 0.5
+        //    && ball.x < paddle.x + paddle.w * 0.5 - ball.w * 0.5
+        //    ) {
+        //        ball.y = paddle.y - paddle.h * 0.5 - ball.h * 0.5;
+        //        ball.yv = -ball.yv;
+        //    }
+
         if (ball.y > paddle.y - paddle.h * 0.5 - ball.h * 0.5
             && ball.y < paddle.y
             && ball.x > paddle.x - paddle.w * 0.5 - ball.w * 0.5
             && ball.x < paddle.x + paddle.w * 0.5 - ball.w * 0.5
             ) {
-                ball.y = paddle.y - paddle.h * 0.5 - ball.h * 0.5;
-                ball.yv = -ball.yv;
-            }
+            intersectY = paddle.y - paddle.h * 0.5;
+            intersectX = ball.x - paddle.x;
+            relativeIntersectX = ((paddle.x + paddle.w * 0.5) - intersectX);
+            bounceAngle = (relativeIntersectX / (paddle.w * 0.5)) * (MAX_BOUNCE_ANGLE);
+            applyBallSpeed(bounceAngle);
+            
+        }
+        
 
         //handle out of bounds
         if (ball.y > canv.height) {
