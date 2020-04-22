@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakout</title>
+</head>
+
+<body>
+<script>   
+    //game parameters
+    const HEIGHT = 900; //pixels
+    const PADDLE_SPD = 0.7; //fraction of screen width/second
+    const BALL_SPD = 0.5; //starting ball speed in fraction of screed width/second
+
+    //derived dimensions
+    const WIDTH = HEIGHT * 0.9; 
+    const WALL = WIDTH / 50;
+    const PADDLE_H = WALL;
+    const PADDLE_W = PADDLE_H * 5;
+    const BALL_SIZE = WALL;
+
+    //colors
+    const COLOR_BACKGROUND = "black";
+    const COLOR_WALL = "gray";
+    const COLOR_PADDLE = "white";
+    const COLOR_BALL = "white";
+
+    //definitions 
+    const Direction = {
+        LEFT: 0,
+        RIGHT: 1,
+        STOP: 2
+    }
+
+    //set up game parameters
+    var canv = document.createElement("canvas");
+    canv.width = WIDTH;
+    canv.height = HEIGHT;
+    document.body.appendChild(canv);
+
+    //set up context
+    var ctx = canv.getContext("2d");
+    ctx.lineWidth = WALL;
+
+    //game variables
+    var paddle, ball;
+
+    //start a new game
+    newGame();
+
+    //event listeners
+    document.addEventListener("keydown", keyDown);
+    document.addEventListener("keyup", keyUp);
+
+    //set up game loop
+    var timeDelta, timeLast;
+    requestAnimationFrame(loop);
+
+    function loop(timeNow) {
+        if (!timeLast) {
+            timeLast = timeNow;
+        }
+
+        //calculate time difference
+        timeDelta = (timeNow - timeLast) / 1000; //seconds
+        timeLast = timeNow;
+
+        //update
+        updatePaddle(timeDelta);
+        updateBall(timeDelta);
+
+        //draw
+        drawBackground();
+        drawWalls();
+        drawPaddle();
+        drawBall();
+
+        //call next loop (recursion)
+        requestAnimationFrame(loop);
+    }
+
+    function applyBallSpeed(angle) {
+        //update x and y velocities of ball
+        ball.xv = ball.spd * Math.cos(angle);
+        ball.yv = -ball.spd * Math.sin(angle);
+    }
+
+    function keyDown(ev) {
+        switch (ev.keyCode) {
+            case 37: //left arrow moves paddle left
+                movePaddle(Direction.LEFT);
+                break;
+            case 39: //right arrow moves paddle right
+                movePaddle(Direction.RIGHT);
+                break;
+            case 32: //space bar serves ball
+                serve();
+                break;
+        }
+    }
+
+    function keyUp(ev) {
+        switch (ev.keyCode) {
+            case 37: //releasing left arrow stops paddle
+            case 39: //releasing right arrow stops paddle
+                movePaddle(Direction.STOP);
+                break;
+        }
+    }
+
+    function drawBackground() {
+        ctx.fillStyle = COLOR_BACKGROUND;
+        ctx.fillRect(0, 0, canv.width, canv.height);
+    }
+
+    function drawPaddle() {
+        ctx.fillStyle = COLOR_PADDLE;
+        ctx.fillRect(paddle.x - paddle.w * 0.5, paddle.y - paddle.h * 0.5, paddle.w, paddle.h)
+    }
+
+    function drawBall() {
+        ctx.fillStyle = COLOR_BALL;
+        ctx.fillRect(ball.x - ball.w * 0.5, ball.y - ball.h * 0.5, ball.w, ball.h)
+    }
+
+    function drawWalls() {
+        let hwall = WALL * 0.5;
+        ctx.strokeStyle = COLOR_WALL;
+        ctx.beginPath();
+        ctx.moveTo(hwall, HEIGHT);
+        ctx.lineTo(hwall, hwall);
+        ctx.lineTo(WIDTH - hwall, hwall);
+        ctx.lineTo(WIDTH - hwall, HEIGHT);
+        ctx.stroke();
+    }
+
+    function movePaddle(direction) {
+        switch (direction) {
+            case Direction.LEFT: 
+                paddle.xv = -paddle.spd;
+                break;
+            case Direction.RIGHT:
+                paddle.xv = paddle.spd;
+                break;
+            case Direction.STOP:
+                paddle.xv = 0;
+                break;
+        }
+    }
+
+    function newGame() {
+        paddle = new Paddle();
+        ball = new Ball();
+    }
+
+    function outOfBounds() {
+        //TODO out of bounds
+        newGame();
+    }
+
+    function serve() {
+        //ball already in motion
+        if (ball.yv != 0) {
+            return;
+        }
+        //random angle, between 45 and 135 degrees
+        let angle = Math.random() * Math.PI / 2 + Math.PI / 4;
+        applyBallSpeed(angle);
+    }
+
+    function updatePaddle(delta) {
+        paddle.x += paddle.xv * delta;
+
+
+        //stop paddle at walls
+        if (paddle.x < WALL + paddle.w * 0.5) {
+            paddle.x = WALL + paddle.w * 0.5;
+        } else if (paddle.x > canv.width - WALL - paddle.w * 0.5) {
+            paddle.x = canv.width - WALL - paddle.w * 0.5;
+        }
+    }
+
+    function updateBall(delta) {
+        ball.x += ball.xv * delta;
+        ball.y += ball.yv * delta;
+
+        //bounce ball off walls
+        if (ball.x < WALL + ball.w * 0.5) {
+            ball.x = WALL + ball.w * 0.5;
+            ball.xv = -ball.xv;
+        } else if (ball.x > canv.width - WALL - ball.w * 0.5) {
+            ball.x = canv.width - WALL - ball.w * 0.5;
+            ball.xv = -ball.xv; 
+        } else if (ball.y < WALL + ball.h * 0.5) {
+            ball.y = WALL + ball.h * 0.5;
+            ball.yv = -ball.yv;
+        }
+
+        //bounce ball off paddle
+        if (ball.y > paddle.y - paddle.h * 0.5 - ball.h * 0.5
+            && ball.y < paddle.y
+            && ball.x > paddle.x - paddle.w * 0.5 - ball.w * 0.5
+            && ball.x < paddle.x + paddle.w * 0.5 - ball.w * 0.5
+            ) {
+                ball.y = paddle.y - paddle.h * 0.5 - ball.h * 0.5;
+                ball.yv = -ball.yv;
+            }
+
+        //handle out of bounds
+        if (ball.y > canv.height) {
+            outOfBounds();
+        }
+
+        //move stationary ball with paddle
+        if (ball.yv == 0) {
+            ball.x = paddle.x;
+        }
+    }
+
+    function Paddle() {
+        this.w = PADDLE_W;
+        this.h = PADDLE_H;
+        this.x = canv.width / 2;
+        this.y = canv.height - (this.h * 3);
+        this.xv = 0;
+        this.spd = PADDLE_SPD * WIDTH;
+    }
+
+    function Ball() {
+        this.w = BALL_SIZE;
+        this.h = BALL_SIZE;
+        this.x = paddle.x;
+        this.y = paddle.y - paddle.h / 2 - this.h / 2;
+        this.xv = 0;
+        this.yv = 0;
+        this.spd = BALL_SPD * WIDTH;
+    }
+</script>
+    
+</body>
+</html>
