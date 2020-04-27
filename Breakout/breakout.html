@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breakout</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
 <script>   
     //game parameters
-    const HEIGHT = 900; //pixels
-    const PADDLE_SPD = 0.7; //fraction of screen width/second
-    const BALL_SPD = 0.5; //starting ball speed in fraction of screed width/second
-
-    //derived dimensions
-    const WIDTH = HEIGHT * 0.9; 
-    const WALL = WIDTH / 50;
-    const PADDLE_H = WALL;
-    const PADDLE_W = PADDLE_H * 5;
-    const BALL_SIZE = WALL;
+    const PADDLE_SPD = 0.5; //fraction of screen width/second
+    const BALL_SPD = 0.5; //starting ball speed in fraction of screed height/second
+    const PADDLE_W = 0.1; //paddle width as fraction of screen width
+    const WALL = 0.02; //wall/ball/paddle size as fraction of shortest screen dimension
+    const BRICK_ROWS = 8; //starting number of brick rows
+    const BRICK_COLS = 14; //number of brick columns
+    const BRICK_GAP = 0.3 //gap between bricks as fraction of wall width
+    const MARGIN = 6; //number of empty rows above bricks
+    const MAX_LEVEL = 10; //maximum game level (+2 rows of bricks per level)
 
     //colors
     const COLOR_BACKGROUND = "black";
@@ -33,25 +42,26 @@
         STOP: 2
     }
 
-    //set up game parameters
+    //set up game canvas and context
     var canv = document.createElement("canvas");
-    canv.width = WIDTH;
-    canv.height = HEIGHT;
     document.body.appendChild(canv);
-
-    //set up context
     var ctx = canv.getContext("2d");
-    ctx.lineWidth = WALL;
 
     //game variables
-    var paddle, ball;
+    var paddle, ball, touchX, bricks = [], level;
 
-    //start a new game
-    newGame();
+    //derived dimensions
+    var height, width, wall;
+    setDimensions();
 
     //event listeners
+    canv.addEventListener("touchcancel", touchCancel);
+    canv.addEventListener("touchend", touchEnd);
+    canv.addEventListener("touchmove", touchMove);
+    canv.addEventListener("touchstart", touchStart);
     document.addEventListener("keydown", keyDown);
     document.addEventListener("keyup", keyUp);
+    window.addEventListener("resize", setDimensions);
 
     //set up game loop
     var timeDelta, timeLast;
@@ -69,11 +79,13 @@
         //update
         updatePaddle(timeDelta);
         updateBall(timeDelta);
+        updateBricks(timeDelta);
 
         //draw
         drawBackground();
         drawWalls();
         drawPaddle();
+        drawBricks();
         drawBall();
 
         //call next loop (recursion)
@@ -109,6 +121,40 @@
         }
     }
 
+    function createBricks() {
+        
+        //row dimensions 
+        let minY = wall;
+        let maxY = ball.y - ball.h * 3.5
+        let totalSpaceY = maxY - minY;
+        let totalRows = MARGIN + BRICK_ROWS + MAX_LEVEL * 2
+        let rowH = totalSpaceY / totalRows;
+        let gap = wall * BRICK_GAP;
+        let h = rowH - gap;
+
+        //column dimensions
+        let totalSpaceX = width - wall * 2
+        let colW = (totalSpaceX - gap) / BRICK_COLS;
+        let w = colW - gap;
+
+        //populate bricks array
+        bricks = [];
+        let cols = BRICK_COLS;
+        let rows = BRICK_ROWS + level * 2;
+        let color, left, top, rank, rankHigh;
+        rankHigh = rows * 0.5 - 1;
+        for (let i = 0; i < rows; i++) {
+            bricks[i] = [];
+            rank = Math.floor(i * 0.5);
+            color = getBrickColor(rank, rankHigh);
+            top = wall + (MARGIN + i) * rowH;
+            for (let j = 0; j < cols; j++) {
+                left = wall + gap + j * colW;
+                bricks[i][j] = new Brick(left, top, w, h, color);
+            }
+        }
+    }
+
     function drawBackground() {
         ctx.fillStyle = COLOR_BACKGROUND;
         ctx.fillRect(0, 0, canv.width, canv.height);
@@ -124,15 +170,48 @@
         ctx.fillRect(ball.x - ball.w * 0.5, ball.y - ball.h * 0.5, ball.w, ball.h)
     }
 
+    function drawBricks() {
+        for (let row of bricks) {
+            for (let brick of row) {
+                if (brick == null) {
+                    continue;
+                }
+                ctx.fillStyle = brick.color;
+                ctx.fillRect(brick.left, brick.top, brick.w, brick.h)
+            }
+        }
+    }
+
     function drawWalls() {
-        let hwall = WALL * 0.5;
+        let hwall = wall * 0.5;
         ctx.strokeStyle = COLOR_WALL;
         ctx.beginPath();
-        ctx.moveTo(hwall, HEIGHT);
+        ctx.moveTo(hwall, height);
         ctx.lineTo(hwall, hwall);
-        ctx.lineTo(WIDTH - hwall, hwall);
-        ctx.lineTo(WIDTH - hwall, HEIGHT);
+        ctx.lineTo(width - hwall, hwall);
+        ctx.lineTo(width - hwall, height);
         ctx.stroke();
+    }
+
+    //red = 0, orange = 0.33, yellow = 0.67, green = 1
+    function getBrickColor(rank, highestRank) {
+        let fraction = rank / highestRank;
+        let r, g, b = 0;
+
+        //red to orange to yellow (increase green)
+        if (fraction <= 0.67) {
+            r = 255;
+            g = 255 * fraction / 0.67;
+        }
+
+        //yellow to green (reduce red)
+        else {
+            r = 255 * (1 - fraction) / 0.33;
+            g = 255;
+        }
+
+        //return rgb color string
+        return "rgb(" + r + ", " + g + ", " + b + ")";
     }
 
     function movePaddle(direction) {
@@ -152,60 +231,123 @@
     function newGame() {
         paddle = new Paddle();
         ball = new Ball();
+        touchX = null;
+        level = 0;
+        createBricks();
     }
 
     function outOfBounds() {
-        //TODO out of bounds
+        
         newGame();
     }
 
     function serve() {
         //ball already in motion
         if (ball.yv != 0) {
-            return;
+            return false;
         }
         //random angle, between 45 and 135 degrees
         let angle = Math.random() * Math.PI / 2 + Math.PI / 4;
         applyBallSpeed(angle);
+        return true;
+    }
+
+    function setDimensions() {
+        height = window.innerHeight; 
+        width = window.innerWidth; 
+        wall = WALL * (height < width ? height : width);
+        canv.width = width;
+        canv.height = height;
+        ctx.lineWidth = wall;
+        newGame();
+    }
+
+    function touchCancel(ev) {
+        touchX = null;
+        movePaddle(Direction.STOP);
+    }
+
+    function touchEnd(ev) {
+        touchX = null;;
+        movePaddle(Direction.STOP)
+    }
+
+    function touchMove(ev) {
+        touchX = ev.touches[0].clientX;
+    }
+
+    function touchStart(ev) {
+        if (serve()) {
+            return;
+        }
+        touchX = ev.touches[0].clientX;
     }
 
     function updatePaddle(delta) {
+        //handle touch
+        if (touchX != null) {
+            if (touchX > paddle.x + wall) {
+                movePaddle(Direction.RIGHT);
+            } else if (touchX < paddle.x - wall) {
+                movePaddle(Direction.LEFT);
+            } else {
+                movePaddle(Direction.STOP);
+            }
+        }
+
+        //move paddle
         paddle.x += paddle.xv * delta;
 
-
         //stop paddle at walls
-        if (paddle.x < WALL + paddle.w * 0.5) {
-            paddle.x = WALL + paddle.w * 0.5;
-        } else if (paddle.x > canv.width - WALL - paddle.w * 0.5) {
-            paddle.x = canv.width - WALL - paddle.w * 0.5;
+        if (paddle.x < wall + paddle.w * 0.5) {
+            paddle.x = wall + paddle.w * 0.5;
+        } else if (paddle.x > canv.width - wall - paddle.w * 0.5) {
+            paddle.x = canv.width - wall - paddle.w * 0.5;
         }
     }
 
     function updateBall(delta) {
+        var intersectX, ballSpeed, influenceX;
         ball.x += ball.xv * delta;
         ball.y += ball.yv * delta;
 
         //bounce ball off walls
-        if (ball.x < WALL + ball.w * 0.5) {
-            ball.x = WALL + ball.w * 0.5;
+        if (ball.x < wall + ball.w * 0.5) {
+            ball.x = wall + ball.w * 0.5;
             ball.xv = -ball.xv;
-        } else if (ball.x > canv.width - WALL - ball.w * 0.5) {
-            ball.x = canv.width - WALL - ball.w * 0.5;
+        } else if (ball.x > canv.width - wall - ball.w * 0.5) {
+            ball.x = canv.width - wall - ball.w * 0.5;
             ball.xv = -ball.xv; 
-        } else if (ball.y < WALL + ball.h * 0.5) {
-            ball.y = WALL + ball.h * 0.5;
+        } else if (ball.y < wall + ball.h * 0.5) {
+            ball.y = wall + ball.h * 0.5;
             ball.yv = -ball.yv;
         }
 
-        //bounce ball off paddle
+        //bounce ball off paddle - SIMPLE BOUNCE
+        //if (ball.y > paddle.y - paddle.h * 0.5 - ball.h * 0.5
+        //    && ball.y < paddle.y + paddle.y + paddle.h * 0.5
+        //    && ball.x > paddle.x - paddle.w * 0.5 - ball.w * 0.5
+        //    && ball.x < paddle.x + paddle.w * 0.5 - ball.w * 0.5
+        //    ) {
+        //        ball.y = paddle.y - paddle.h * 0.5 - ball.h * 0.5;
+        //        ball.yv = -ball.yv;
+        //    }
+
+        //bounce ball off paddle based on where ball hits paddle
         if (ball.y > paddle.y - paddle.h * 0.5 - ball.h * 0.5
-            && ball.y < paddle.y
+            && ball.y < paddle.y + paddle.h * 0.5
             && ball.x > paddle.x - paddle.w * 0.5 - ball.w * 0.5
             && ball.x < paddle.x + paddle.w * 0.5 - ball.w * 0.5
             ) {
                 ball.y = paddle.y - paddle.h * 0.5 - ball.h * 0.5;
-                ball.yv = -ball.yv;
+                ballSpeed = Math.sqrt(ball.xv * ball.xv + ball.yv * ball.yv);
+                intersectX = (ball.x - paddle.x) / paddle.w * 0.5;
+                influenceX = 1;
+                ball.xv = ballSpeed * intersectX * influenceX;
+                ball.yv = Math.sqrt(ballSpeed * ballSpeed - ball.xv * ball.xv) *
+                (ball.yv > 0 ? -1 : 1);
             }
+        
 
         //handle out of bounds
         if (ball.y > canv.height) {
@@ -218,23 +360,59 @@
         }
     }
 
+    function updateBricks(delta) {
+
+        //check for ball collisions
+        OUTER: for (let i = 0; i < bricks.length; i++) {
+            for (let j = 0; j < BRICK_COLS; j++) {
+                if (bricks[i][j] != null && bricks[i][j].intersect(ball)) {
+                    bricks[i][j] = null;
+                    ball.yv = -ball.yv
+                    //TODO score etc.
+                    break OUTER;
+                }
+            }
+        }
+
+    }
+
     function Paddle() {
-        this.w = PADDLE_W;
-        this.h = PADDLE_H;
+        this.w = PADDLE_W * width;
+        this.h = wall;
         this.x = canv.width / 2;
         this.y = canv.height - (this.h * 3);
         this.xv = 0;
-        this.spd = PADDLE_SPD * WIDTH;
+        this.spd = PADDLE_SPD * width;
     }
 
     function Ball() {
-        this.w = BALL_SIZE;
-        this.h = BALL_SIZE;
+        this.w = wall;
+        this.h = wall;
         this.x = paddle.x;
         this.y = paddle.y - paddle.h / 2 - this.h / 2;
         this.xv = 0;
         this.yv = 0;
-        this.spd = BALL_SPD * WIDTH;
+        this.spd = BALL_SPD * height;
+    }
+
+    function Brick(left, top, w, h, color) {
+        this.w = w;
+        this.h = h;
+        this.bot = top + h;
+        this.left = left;
+        this.right = left + w;
+        this.top = top;
+        this.color = color;
+        this.intersect = function(ball) {
+            let bBot = ball.y + ball.h * 0.5
+            let bLeft = ball.x - ball.w * 0.5
+            let bRight = ball.x + ball.w * 0.5
+            let bTop = ball.y - ball.h * 0.5
+            return this.left < bRight
+                && bLeft < this.right
+                && this.bot > bTop
+                && bBot > this.top;
+        }
     }
 </script>
     
