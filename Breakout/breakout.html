@@ -21,19 +21,36 @@
     //game parameters
     const PADDLE_SPD = 0.5; //fraction of screen width/second
     const BALL_SPD = 0.5; //starting ball speed in fraction of screed height/second
+    const MAX_BALL_SPD = 2 //max ball speed as multiple of starting speed
     const PADDLE_W = 0.1; //paddle width as fraction of screen width
-    const WALL = 0.02; //wall/ball/paddle size as fraction of shortest screen dimension
+    const WALL = 0.02; //wall/ball size as fraction of shortest screen dimension
+    const PADDLE_SIZE = 1.5; //paddle size as multiple of wall thickness (to adjust so ball doesn't clip when moving too fast due to FPS)
     const BRICK_ROWS = 8; //starting number of brick rows
     const BRICK_COLS = 14; //number of brick columns
     const BRICK_GAP = 0.3 //gap between bricks as fraction of wall width
     const MARGIN = 6; //number of empty rows above bricks
     const MAX_LEVEL = 10; //maximum game level (+2 rows of bricks per level)
+    const GAME_LIVES = 3; //starting number of lives
+    const KEY_SCORE = "highscore"; //save key for local storage of high score
+    const PUP_CHANCE = 0.075; //chance of powerup dropping from broken brick (0-1)
+    const PUP_SPD = 0.15; //powerup speed as faction of screen height/second
+    const PUP_BONUS = 50; //bonus points for collecting redundant powerup
 
     //colors
     const COLOR_BACKGROUND = "black";
     const COLOR_WALL = "gray";
     const COLOR_PADDLE = "white";
     const COLOR_BALL = "white";
+    const COLOR_TEXT = "white";
+
+    //text 
+    const TEXT_FONT = "Lucida Console";
+    const TEXT_LEVEL = "Level";
+    const TEXT_LIVES = "Ball";
+    const TEXT_SCORE = "Score";
+    const TEXT_SCORE_HIGH = "BEST";
+    const TEXT_GAME_OVER = "GAME OVER!";
+    const TEXT_WIN = "YOU WIN!";
 
     //definitions 
     const Direction = {
@@ -42,13 +59,29 @@
         STOP: 2
     }
 
+    const PupType = {
+        EXTENSION: {color: "dodgerblue", symbol: "="},
+        LIFE: {color: "hotpink", symbol: "+"},
+        STICKY: {color: "forestgreen", symbol: "~"},
+        SUPER: {color: "purple", symbol: "s"},
+    }
+
     //set up game canvas and context
     var canv = document.createElement("canvas");
     document.body.appendChild(canv);
     var ctx = canv.getContext("2d");
 
+    //set up sound effects
+    var fxBrick = new Audio("sounds/brick.m4a");
+    var fxPaddle = new Audio("sounds/paddle.m4a");
+    var fxPowerUp = new Audio("sounds/powerup.m4a");
+    var fxWall = new Audio("sounds/wall.m4a");
+
     //game variables
-    var paddle, ball, touchX, bricks = [], level;
+    var paddle, ball, bricks = [], pups = [];
+    var gameOver, win, pupExtension, pupSticky, pupSuper;
+    var level, lives, score, scoreHigh;
+    var numBricks, textSize, touchX;
 
     //derived dimensions
     var height, width, wall;
@@ -77,15 +110,20 @@
         timeLast = timeNow;
 
         //update
-        updatePaddle(timeDelta);
-        updateBall(timeDelta);
-        updateBricks(timeDelta);
-
+        if (!gameOver) {
+            updatePaddle(timeDelta);
+            updateBall(timeDelta);
+            updateBricks(timeDelta);
+            updatePups(timeDelta);
+        }
+        
         //draw
         drawBackground();
         drawWalls();
+        drawPups();
         drawPaddle();
         drawBricks();
+        drawText();
         drawBall();
 
         //call next loop (recursion)
@@ -108,6 +146,9 @@
                 break;
             case 32: //space bar serves ball
                 serve();
+                if (gameOver) {
+                    newGame();
+                }
                 break;
         }
     }
@@ -131,6 +172,7 @@
         let rowH = totalSpaceY / totalRows;
         let gap = wall * BRICK_GAP;
         let h = rowH - gap;
+        textSize = rowH * MARGIN * 0.5;
 
         //column dimensions
         let totalSpaceX = width - wall * 2
@@ -141,16 +183,19 @@
         bricks = [];
         let cols = BRICK_COLS;
         let rows = BRICK_ROWS + level * 2;
-        let color, left, top, rank, rankHigh;
+        let color, left, top, rank, score, spdMult, rankHigh;
+        numBricks = cols * rows;
         rankHigh = rows * 0.5 - 1;
         for (let i = 0; i < rows; i++) {
             bricks[i] = [];
             rank = Math.floor(i * 0.5);
+            score = (rankHigh - rank) * 2 + 1;
+            spdMult = 1 + (rankHigh - rank) / rankHigh * (MAX_BALL_SPD - 1);
             color = getBrickColor(rank, rankHigh);
             top = wall + (MARGIN + i) * rowH;
             for (let j = 0; j < cols; j++) {
                 left = wall + gap + j * colW;
-                bricks[i][j] = new Brick(left, top, w, h, color);
+                bricks[i][j] = new Brick(left, top, w, h, color, score, spdMult);
             }
         }
     }
@@ -161,12 +206,72 @@
     }
 
     function drawPaddle() {
-        ctx.fillStyle = COLOR_PADDLE;
+        ctx.fillStyle = pupSticky ? PupType.STICKY.color : COLOR_PADDLE;
         ctx.fillRect(paddle.x - paddle.w * 0.5, paddle.y - paddle.h * 0.5, paddle.w, paddle.h)
     }
 
+    function drawPups() {
+        ctx.lineWidth = wall * 0.35;
+        for (let pup of pups) {
+            ctx.fillStyle = pup.type.color;
+            ctx.strokeStyle = pup.type.color;
+            ctx.strokeRect(pup.x - pup.w * 0.5, pup.y - pup.h * 0.5, pup.w, pup.h);
+            ctx.font = "bold " + pup.h + "px " + TEXT_FONT;
+            ctx.textAlign = "center";
+            ctx.fillText(pup.type.symbol, pup.x, pup.y + pup.h * 0.25);
+        }
+    }
+
+    function drawText() {
+        ctx.fillStyle = COLOR_TEXT;
+
+        //dimensions
+        let labelSize = textSize * 0.5;
+        let margin = wall * 2;
+        let maxWidth = width - margin * 2;
+        let maxWidth1 = maxWidth * 0.27;
+        let maxWidth2 = maxWidth * 0.2;
+        let maxWidth3 = maxWidth * 0.2;
+        let maxWidth4 = maxWidth * 0.27;
+        let x1 = margin;
+        let x2 = width * 0.4;
+        let x3 = width * 0.6;
+        let x4 = width - margin;
+        let yLabel = wall + labelSize;
+        let yValue = yLabel + textSize * 0.9;
+
+        //labels
+        ctx.font = labelSize + "px " + TEXT_FONT;
+        ctx.textAlign = "left";
+        ctx.fillText(TEXT_SCORE, x1, yLabel, maxWidth1);
+        ctx.textAlign = "center"
+        ctx.fillText(TEXT_LIVES, x2, yLabel, maxWidth2);
+        ctx.fillText(TEXT_LEVEL, x3, yLabel, maxWidth3);
+        ctx.textAlign = "right"
+        ctx.fillText(TEXT_SCORE_HIGH, x4, yLabel, maxWidth4);
+
+        //values
+        ctx.font = textSize + "px " + TEXT_FONT;
+        ctx.textAlign = "left";
+        ctx.fillText(score, x1, yValue, maxWidth1);
+        ctx.textAlign = "center"
+        ctx.fillText(lives + "/" + GAME_LIVES, x2, yValue, maxWidth2);
+        ctx.fillText(level, x3, yValue, maxWidth3);
+        ctx.textAlign = "right"
+        ctx.fillText(scoreHigh, x4, yValue, maxWidth4);
+
+        //game over
+        if (gameOver) {
+            let text = win ? TEXT_WIN : TEXT_GAME_OVER;
+            ctx.font = textSize + "px " + TEXT_FONT;
+            ctx.textAlign = "center";
+            ctx.fillText(TEXT_GAME_OVER, width * 0.5, paddle.y - textSize, maxWidth);
+        }
+
+    }
+
     function drawBall() {
-        ctx.fillStyle = COLOR_BALL;
+        ctx.fillStyle = pupSuper ? PupType.SUPER.color : COLOR_BALL;
         ctx.fillRect(ball.x - ball.w * 0.5, ball.y - ball.h * 0.5, ball.w, ball.h)
     }
 
@@ -184,6 +289,7 @@
 
     function drawWalls() {
         let hwall = wall * 0.5;
+        ctx.lineWidth = wall;
         ctx.strokeStyle = COLOR_WALL;
         ctx.beginPath();
         ctx.moveTo(hwall, height);
@@ -228,17 +334,46 @@
         }
     }
 
-    function newGame() {
+    function newBall() {
+        pupExtension = false;
+        pupSticky = false;
+        pupSuper = false;
         paddle = new Paddle();
         ball = new Ball();
-        touchX = null;
+    }
+
+    function newGame() {
+        gameOver = false;
+        lives = GAME_LIVES;
+        score = 0;
         level = 0;
+        win = false;
+
+        //get high score from local storage
+        let scoreStr = localStorage.getItem(KEY_SCORE);
+        if (scoreStr == null) {
+            scoreHigh = 0;
+        } else {
+            scoreHigh = parseInt(scoreStr);
+        }
+
+        //start new level
+        newLevel();
+    }
+
+    function newLevel() {
+        pups = [];
+        touchX = null;
+        newBall();
         createBricks();
     }
 
     function outOfBounds() {
-        
-        newGame();
+        lives--;
+        if (lives == 0) {
+            gameOver = true;
+        }
+        newBall();
     }
 
     function serve() {
@@ -248,7 +383,8 @@
         }
         //random angle, between 45 and 135 degrees
         let angle = Math.random() * Math.PI / 2 + Math.PI / 4;
-        applyBallSpeed(angle);
+        applyBallSpeed(pupSticky ? Math.PI / 2 : angle);
+        fxPaddle.play();
         return true;
     }
 
@@ -258,7 +394,7 @@
         wall = WALL * (height < width ? height : width);
         canv.width = width;
         canv.height = height;
-        ctx.lineWidth = wall;
+        ctx.textBaseLine = "middle";
         newGame();
     }
 
@@ -278,6 +414,9 @@
 
     function touchStart(ev) {
         if (serve()) {
+            if (gameOver) {
+                newGame();
+                }
             return;
         }
         touchX = ev.touches[0].clientX;
@@ -296,6 +435,7 @@
         }
 
         //move paddle
+        let lastPaddleX = paddle.x
         paddle.x += paddle.xv * delta;
 
         //stop paddle at walls
@@ -304,7 +444,56 @@
         } else if (paddle.x > canv.width - wall - paddle.w * 0.5) {
             paddle.x = canv.width - wall - paddle.w * 0.5;
         }
+
+        //move stationary ball with paddle
+        if (ball.yv == 0) {
+            ball.x += paddle.x - lastPaddleX;
+        }
+
+        //collect powerups
+        for (let i = pups.length - 1; i >= 0; i--) {
+            if (pups[i].x + pups[i].w * 0.5 > paddle.x - paddle.w * 0.5
+                && pups[i].x - pups[i].w * 0.5 < paddle.x + paddle.w * 0.5
+                && pups[i].y + pups[i].h * 0.5 > paddle.y - paddle.h * 0.5
+                && pups[i].y - pups[i].h * 0.5 < paddle.y + paddle.h * 0.5
+            ) {
+                switch(pups[i].type) {
+                    case PupType.EXTENSION:
+                        //double width of paddle
+                        if (pupExtension) {
+                            score += PUP_BONUS;
+                        } else {
+                            pupExtension = true;
+                            paddle.w *= 2
+                        } break;
+                    case PupType.LIFE:
+                        //add a life (max 5)
+                        if (lives >= 5) {
+                            score += PUP_BONUS
+                        } else {
+                             lives++;
+                        } break;
+                    case PupType.STICKY:
+                        //paddle "holds" ball for another serve
+                        if (pupSticky) {
+                                score += PUP_BONUS;
+                            } else {
+                                pupSticky = true;
+                            } break;
+                    case PupType.SUPER:
+                        //double width of paddle
+                        if (pupSuper) {
+                            score += PUP_BONUS;
+                        } else {
+                            pupSuper = true;
+                        } break;
+                }
+                pups.splice(i, 1);
+                fxPowerUp.play();
+            }
+        }         
     }
+    
 
     function updateBall(delta) {
         var intersectX, ballSpeed, influenceX;
@@ -315,12 +504,15 @@
         if (ball.x < wall + ball.w * 0.5) {
             ball.x = wall + ball.w * 0.5;
             ball.xv = -ball.xv;
+            fxWall.play();
         } else if (ball.x > canv.width - wall - ball.w * 0.5) {
             ball.x = canv.width - wall - ball.w * 0.5;
             ball.xv = -ball.xv; 
+            fxWall.play();
         } else if (ball.y < wall + ball.h * 0.5) {
             ball.y = wall + ball.h * 0.5;
             ball.yv = -ball.yv;
+            fxWall.play();
         }
 
         //bounce ball off paddle - SIMPLE BOUNCE
@@ -340,23 +532,24 @@
             && ball.x < paddle.x + paddle.w * 0.5 - ball.w * 0.5
             ) {
                 ball.y = paddle.y - paddle.h * 0.5 - ball.h * 0.5;
-                ballSpeed = Math.sqrt(ball.xv * ball.xv + ball.yv * ball.yv);
+                if (pupSticky) {
+                    ball.xv = 0;
+                    ball.yv = 0
+                } else {
+                ballSpeed = ball.spd;
                 intersectX = (ball.x - paddle.x) / paddle.w * 0.5;
                 influenceX = 1;
                 ball.xv = ballSpeed * intersectX * influenceX;
                 ball.yv = Math.sqrt(ballSpeed * ballSpeed - ball.xv * ball.xv) *
                 (ball.yv > 0 ? -1 : 1);
+                fxPaddle.play();
+                }
             }
         
 
         //handle out of bounds
         if (ball.y > canv.height) {
             outOfBounds();
-        }
-
-        //move stationary ball with paddle
-        if (ball.yv == 0) {
-            ball.x = paddle.x;
         }
     }
 
@@ -366,21 +559,77 @@
         OUTER: for (let i = 0; i < bricks.length; i++) {
             for (let j = 0; j < BRICK_COLS; j++) {
                 if (bricks[i][j] != null && bricks[i][j].intersect(ball)) {
-                    bricks[i][j] = null;
+                    updateScore(bricks[i][j].score);
+                    ball.setSpd(bricks[i][j].spdMult)
+
+                    //set ball to edge of brick (help with clipping at high speeds)
+                    if (ball.yv < 0) { //upwards
+                        ball.y = bricks[i][j].bot + ball.h * 0.5;
+                    } else { //downwards
+                        ball.y = bricks[i][j].top - ball.h * 0.5;    
+                    }
+
+                    //create powerup
+                    if (Math.random() <= PUP_CHANCE) {
+                        let px = bricks[i][j].left + bricks[i][j].w / 2;
+                        let py = bricks[i][j].top + bricks[i][j].h / 2;
+                        let pSize = bricks[i][j].w / 2;
+                        let pKeys = Object.keys(PupType);
+                        let pKey = pKeys[Math.floor(Math.random() * pKeys.length)];
+                        pups.push(new PowerUp(px, py, pSize, PupType[pKey]));
+                    }
+
+
+                    //bounce ball if not super ball and destroy brick
+                    if (!pupSuper) {
                     ball.yv = -ball.yv
-                    //TODO score etc.
+                    }
+                    bricks[i][j] = null;
+                    numBricks--;
+                    fxBrick.play();
                     break OUTER;
                 }
             }
         }
+        //next level
+        if (numBricks == 0) {
+            if (level < MAX_LEVEL) {
+                level++;
+                newLevel();
+            } else {
+                gameOver = true;
+                win = true;
+                newBall();
+            }
+        }
+    }
 
+    function updatePups(delta) {
+        for (let i = pups.length - 1; i >= 0; i--) {
+            pups[i].y += pups[i].yv * delta;
+
+            //delete off-screen powerups
+            if (pups[i].y - pups[i].h * 0.5 > height) {
+                pups.splice(i, 1);
+            }
+        }
+    }
+
+    function updateScore(brickScore) {
+        score += brickScore;
+
+        //check for high score
+        if (score > scoreHigh) {
+            scoreHigh = score;
+            localStorage.setItem(KEY_SCORE, scoreHigh);
+        }
     }
 
     function Paddle() {
         this.w = PADDLE_W * width;
-        this.h = wall;
+        this.h = wall * PADDLE_SIZE;
         this.x = canv.width / 2;
-        this.y = canv.height - (this.h * 3);
+        this.y = canv.height - wall * 3.5 + this.h / 2;
         this.xv = 0;
         this.spd = PADDLE_SPD * width;
     }
@@ -393,9 +642,14 @@
         this.xv = 0;
         this.yv = 0;
         this.spd = BALL_SPD * height;
+
+        this.setSpd = function(spdMult) {
+            this.spd = Math.max(this.spd, BALL_SPD * height * spdMult);
+            console.log("spd=" + this.spd);
+        }
     }
 
-    function Brick(left, top, w, h, color) {
+    function Brick(left, top, w, h, color, score, spdMult) {
         this.w = w;
         this.h = h;
         this.bot = top + h;
@@ -403,6 +657,10 @@
         this.right = left + w;
         this.top = top;
         this.color = color;
+        this.score = score;
+        this.spdMult = spdMult;
+
+
         this.intersect = function(ball) {
             let bBot = ball.y + ball.h * 0.5
             let bLeft = ball.x - ball.w * 0.5
@@ -413,6 +671,15 @@
                 && this.bot > bTop
                 && bBot > this.top;
         }
+    }
+
+    function PowerUp(x, y, size, type) {
+        this.w = size;
+        this.h = size;
+        this.x = x;
+        this.y = y;
+        this.type = type;
+        this.yv = PUP_SPD * height;
     }
 </script>
     
