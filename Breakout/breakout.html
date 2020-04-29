@@ -405,6 +405,8 @@
         } else if (pupSticky) {
             relativeBounce(currentSpd);
             fxPaddle.play();
+            console.log(ball.xv)
+            console.log(ball.yv)
             return true;
         }
     }
@@ -574,7 +576,7 @@
         influenceX = 1;
         ball.xv = ballSpeed * intersectX * influenceX;
         ball.yv = Math.sqrt(ballSpeed * ballSpeed - ball.xv * ball.xv) *
-        (ball.yv > 0 ? -1 : 1);
+        (ball.yv >= 0 ? -1 : 1);
         fxPaddle.play();
     }
 
