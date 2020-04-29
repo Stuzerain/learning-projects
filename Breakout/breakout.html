@@ -32,7 +32,7 @@
     const MAX_LEVEL = 10; //maximum game level (+2 rows of bricks per level)
     const GAME_LIVES = 3; //starting number of lives
     const KEY_SCORE = "highscore"; //save key for local storage of high score
-    const PUP_CHANCE = 0.075; //chance of powerup dropping from broken brick (0-1)
+    const PUP_CHANCE = 1; //chance of powerup dropping from broken brick (0-1)
     const PUP_SPD = 0.15; //powerup speed as faction of screen height/second
     const PUP_BONUS = 50; //bonus points for collecting redundant powerup
 
@@ -82,6 +82,7 @@
     var gameOver, win, pupExtension, pupSticky, pupSuper;
     var level, lives, score, scoreHigh;
     var numBricks, textSize, touchX;
+    var currentSpd;
 
     //derived dimensions
     var height, width, wall;
@@ -272,7 +273,14 @@
 
     function drawBall() {
         ctx.fillStyle = pupSuper ? PupType.SUPER.color : COLOR_BALL;
-        ctx.fillRect(ball.x - ball.w * 0.5, ball.y - ball.h * 0.5, ball.w, ball.h)
+
+        //rectangle ball
+        //ctx.fillRect(ball.x - ball.w * 0.5, ball.y - ball.h * 0.5, ball.w, ball.h)
+
+        //round ball
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.w * 0.5, 0, Math.PI * 2);
+        ctx.fill();
     }
 
     function drawBricks() {
@@ -376,6 +384,12 @@
         newBall();
     }
 
+    function fetchCurrentSpd() {
+        currentSpd = ball.spd;
+        console.log("currentSpd = " + currentSpd);
+        return currentSpd;
+    }
+
     function serve() {
         //ball already in motion
         if (ball.yv != 0) {
@@ -383,9 +397,16 @@
         }
         //random angle, between 45 and 135 degrees
         let angle = Math.random() * Math.PI / 2 + Math.PI / 4;
-        applyBallSpeed(pupSticky ? Math.PI / 2 : angle);
-        fxPaddle.play();
-        return true;
+        //applyBallSpeed(pupSticky ? relativeBounce(ball.spd) : angle);
+        if (!pupSticky) {
+            applyBallSpeed(angle);
+            fxPaddle.play();
+            return true;
+        } else if (pupSticky) {
+            relativeBounce(currentSpd);
+            fxPaddle.play();
+            return true;
+        }
     }
 
     function setDimensions() {
@@ -536,13 +557,7 @@
                     ball.xv = 0;
                     ball.yv = 0
                 } else {
-                ballSpeed = ball.spd;
-                intersectX = (ball.x - paddle.x) / paddle.w * 0.5;
-                influenceX = 1;
-                ball.xv = ballSpeed * intersectX * influenceX;
-                ball.yv = Math.sqrt(ballSpeed * ballSpeed - ball.xv * ball.xv) *
-                (ball.yv > 0 ? -1 : 1);
-                fxPaddle.play();
+                relativeBounce(ballSpeed);
                 }
             }
         
@@ -553,6 +568,16 @@
         }
     }
 
+    function relativeBounce() {
+        ballSpeed = currentSpd;
+        intersectX = (ball.x - paddle.x) / paddle.w * 0.5;
+        influenceX = 1;
+        ball.xv = ballSpeed * intersectX * influenceX;
+        ball.yv = Math.sqrt(ballSpeed * ballSpeed - ball.xv * ball.xv) *
+        (ball.yv > 0 ? -1 : 1);
+        fxPaddle.play();
+    }
+
     function updateBricks(delta) {
 
         //check for ball collisions
@@ -560,7 +585,8 @@
             for (let j = 0; j < BRICK_COLS; j++) {
                 if (bricks[i][j] != null && bricks[i][j].intersect(ball)) {
                     updateScore(bricks[i][j].score);
-                    ball.setSpd(bricks[i][j].spdMult)
+                    ball.setSpd(bricks[i][j].spdMult);
+                    fetchCurrentSpd();
 
                     //set ball to edge of brick (help with clipping at high speeds)
                     if (ball.yv < 0) { //upwards
@@ -591,6 +617,7 @@
                 }
             }
         }
+
         //next level
         if (numBricks == 0) {
             if (level < MAX_LEVEL) {
