@@ -50,7 +50,7 @@ var fxWall = new Sound("sounds/wall.m4a", 1, 0.25);
 let musicChoices = ["kinshicho.mp3", "90s.mp3", "envy.mp3", "sodan.mp3", "tokyo.mp3"]
 
 //background music
-let bgmPick = Math.floor(Math.random() * (musicChoices.length +1))
+let bgmPick = Math.floor(Math.random() * (musicChoices.length))
 var bgm = new Sound(`sounds/music/${musicChoices[bgmPick]}`, 1, 0.1);
 
 //game variables
