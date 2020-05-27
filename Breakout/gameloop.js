@@ -12,9 +12,11 @@ const MARGIN = 6; //number of empty rows above bricks
 const MAX_LEVEL = 10; //maximum game level (+2 rows of bricks per level)
 const GAME_LIVES = 3; //starting number of lives
 const KEY_SCORE = "highscore"; //save key for local storage of high score
-const PUP_CHANCE = 0.075; //chance of powerup dropping from broken brick (0-1)
+const PUP_CHANCE = 0.025; //chance of powerup dropping from broken brick (0-1)
 const PUP_SPD = 0.15; //powerup speed as faction of screen height/second
 const PUP_BONUS = 50; //bonus points for collecting redundant powerup
+const SOUND_ON = true; //volume toggle
+const MUSIC_ON = true; //music toggle
 
 //colors
 const COLOR_BACKGROUND = "black";
@@ -38,10 +40,18 @@ document.body.appendChild(canv);
 var ctx = canv.getContext("2d");
 
 //set up sound effects
-var fxBrick = new Audio("sounds/brick.m4a");
-var fxPaddle = new Audio("sounds/paddle.m4a");
-var fxPowerUp = new Audio("sounds/powerup.m4a");
-var fxWall = new Audio("sounds/wall.m4a");
+var fxBrick = new Sound("sounds/brick.m4a", 2, 0.25);
+var fxPaddle = new Sound("sounds/paddle.m4a", 1, 0.25);
+var fxPowerUp = new Sound("sounds/powerup.m4a", 1, 0.25);
+var fxWall = new Sound("sounds/wall.m4a", 1, 0.25);
+
+
+//different songs for different levels
+let musicChoices = ["kinshicho.mp3", "90s.mp3", "envy.mp3", "sodan.mp3", "tokyo.mp3"]
+
+//background music
+let bgmPick = Math.floor(Math.random() * (musicChoices.length +1))
+var bgm = new Sound(`sounds/music/${musicChoices[bgmPick]}`, 1, 0.1);
 
 //game variables
 var paddle, ball, bricks = [], pups = [];
@@ -115,6 +125,7 @@ function newGame() {
 
     //start new level
     newLevel();
+    bgm.stop();
 }
 
 function newLevel() {
@@ -140,5 +151,26 @@ function updateScore(brickScore) {
     if (score > scoreHigh) {
         scoreHigh = score;
         localStorage.setItem(KEY_SCORE, scoreHigh);
+    }
+}
+
+function Sound(src, maxStreams = 1, vol = 1.0) {
+    this.streamNum = 0;
+    this.streams = [];
+    for (var i = 0; i < maxStreams; i = i + 1) {
+        this.streams.push(new Audio(src));
+        this.streams[i].volume = vol;
+    }
+
+    this.play = function() {
+        if (SOUND_ON) {
+        this.streamNum = (this.streamNum + 1) % maxStreams;
+        this.streams[this.streamNum].play();
+        }
+    }
+
+    this.stop = function() {
+        this.streams[this.streamNum].pause();
+        this.streams[this.streamNum].currentTime = 0;
     }
 }

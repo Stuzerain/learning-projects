@@ -54,7 +54,7 @@ function drawText() {
     ctx.fillText(score, x1, yValue, maxWidth1);
     ctx.textAlign = "center"
     ctx.fillText(lives + "/" + GAME_LIVES, x2, yValue, maxWidth2);
-    ctx.fillText(level, x3, yValue, maxWidth3);
+    ctx.fillText(level + 1, x3, yValue, maxWidth3);
     ctx.textAlign = "right"
     ctx.fillText(scoreHigh, x4, yValue, maxWidth4);
 
@@ -64,6 +64,7 @@ function drawText() {
         ctx.font = textSize + "px " + TEXT_FONT;
         ctx.textAlign = "center";
         ctx.fillText(TEXT_GAME_OVER, width * 0.5, paddle.y - textSize, maxWidth);
+        bgm.stop();
     }
 
 }
@@ -107,18 +108,20 @@ function drawBricks() {
 //red = 0, orange = 0.33, yellow = 0.67, green = 1
 function getBrickColor(rank, highestRank) {
     let fraction = rank / highestRank;
-    let r, g, b = 0;
+    let r, b = 0;
+    let g = 0; //g had to be initialized separately or it would appear undefined when returning the
+               //rgb value at the end of this function...not sure why this happened
 
-    //red to orange to yellow (increase green)
+    //red to pink/purple (increase blue)
     if (fraction <= 0.67) {
         r = 255;
-        g = 255 * fraction / 0.67;
+        b = 255 * fraction / 0.67;
     }
 
-    //yellow to green (reduce red)
+    //purple to blue (reduce red)
     else {
         r = 255 * (1 - fraction) / 0.33;
-        g = 255;
+        b = 255;
     }
 
     //return rgb color string

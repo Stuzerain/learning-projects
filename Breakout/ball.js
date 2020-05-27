@@ -40,6 +40,8 @@ function serve() {
     }
     //random angle, between 45 and 135 degrees
     let angle = Math.random() * Math.PI / 2 + Math.PI / 4;
+    bgm.play();
+
     //applyBallSpeed(pupSticky ? relativeBounce(ball.spd) : angle);
     if (!pupSticky) {
         applyBallSpeed(angle);
