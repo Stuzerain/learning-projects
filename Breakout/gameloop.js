@@ -19,11 +19,11 @@ const SOUND_ON = true; //volume toggle
 const MUSIC_ON = true; //music toggle
 
 //colors
-const COLOR_BACKGROUND = "black";
+const COLOR_BACKGROUND = "white";
 const COLOR_WALL = "gray";
-const COLOR_PADDLE = "white";
-const COLOR_BALL = "white";
-const COLOR_TEXT = "white";
+const COLOR_PADDLE = "black";
+const COLOR_BALL = "black";
+const COLOR_TEXT = "black";
 
 //text 
 const TEXT_FONT = "Lucida Console";
@@ -40,18 +40,21 @@ document.body.appendChild(canv);
 var ctx = canv.getContext("2d");
 
 //set up sound effects
-var fxBrick = new Sound("sounds/brick.m4a", 2, 0.25);
-var fxPaddle = new Sound("sounds/paddle.m4a", 1, 0.25);
-var fxPowerUp = new Sound("sounds/powerup.m4a", 1, 0.25);
-var fxWall = new Sound("sounds/wall.m4a", 1, 0.25);
+var fxBrick = new Sound("sounds/brick.m4a", 2, 0.15);
+var fxPaddle = new Sound("sounds/paddle.m4a", 1, 0.15);
+var fxPowerUp = new Sound("sounds/powerup.m4a", 1, 0.15);
+var fxWall = new Sound("sounds/wall.m4a", 1, 0.15);
 
 
 //different songs for different levels
-let musicChoices = ["kinshicho.mp3", "90s.mp3", "envy.mp3", "sodan.mp3", "tokyo.mp3"]
+let musicChoices = ["kinshicho.mp3", "90s.mp3", "envy.mp3", "sodan.mp3", "tokyo.mp3",
+    "connect.mp3", "woman.mp3", "mother.mp3", "celeste.mp3", "renai.mp3"]
 
 //background music
-let bgmPick = Math.floor(Math.random() * (musicChoices.length))
-var bgm = new Sound(`sounds/music/${musicChoices[bgmPick]}`, 1, 0.1);
+let song;
+song = Math.floor(Math.random() * (musicChoices.length))
+
+var bgm = new Sound(`sounds/music/${musicChoices[song]}`, 1, 0.1);
 
 //game variables
 var paddle, ball, bricks = [], pups = [];
@@ -59,6 +62,7 @@ var gameOver, win, pupExtension, pupSticky, pupSuper;
 var level, lives, score, scoreHigh;
 var numBricks, textSize, touchX;
 var currentSpd;
+var musicPlay;
 
 //derived dimensions
 var height, width, wall;
@@ -125,7 +129,6 @@ function newGame() {
 
     //start new level
     newLevel();
-    bgm.stop();
 }
 
 function newLevel() {
@@ -155,6 +158,7 @@ function updateScore(brickScore) {
 }
 
 function Sound(src, maxStreams = 1, vol = 1.0) {
+    this.src = src;
     this.streamNum = 0;
     this.streams = [];
     for (var i = 0; i < maxStreams; i = i + 1) {
@@ -166,11 +170,28 @@ function Sound(src, maxStreams = 1, vol = 1.0) {
         if (SOUND_ON) {
         this.streamNum = (this.streamNum + 1) % maxStreams;
         this.streams[this.streamNum].play();
+        musicPlay = true;
         }
+    }
+
+    this.pause = function() {
+        this.streams[this.streamNum].pause();
+        musicPlay = false;
     }
 
     this.stop = function() {
         this.streams[this.streamNum].pause();
         this.streams[this.streamNum].currentTime = 0;
+        musicPlay = false;
+    }
+
+    this.next = function () {
+        if (song >= musicChoices.length - 1) {
+            song = 0;
+        } else if (song >= 0) {
+            song++
+        }
+        this.src = `sounds/music/${musicChoices[song]}`;     
+        
     }
 }

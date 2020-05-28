@@ -1,5 +1,13 @@
+var img1 = new Image();
+img1.src= "images/hitagi.png";
+
 function drawBackground() {
+    var pattern = ctx.createPattern(img1, 'no-repeat') 
+
     ctx.fillStyle = COLOR_BACKGROUND;
+    ctx.fillRect(0, 0, canv.width, canv.height) ;
+    
+    ctx.fillStyle = pattern;
     ctx.fillRect(0, 0, canv.width, canv.height);
 }
 
@@ -63,8 +71,15 @@ function drawText() {
         let text = win ? TEXT_WIN : TEXT_GAME_OVER;
         ctx.font = textSize + "px " + TEXT_FONT;
         ctx.textAlign = "center";
-        ctx.fillText(TEXT_GAME_OVER, width * 0.5, paddle.y - textSize, maxWidth);
-        bgm.stop();
+        ctx.fillText(TEXT_GAME_OVER, width * 0.35, paddle.y - textSize, maxWidth);
+    }
+
+    //music info
+    if (musicPlay) {
+        let playing = `Now Playing: ${musicChoices[song]}`
+        ctx.font = textSize/3 + "px " + TEXT_FONT;
+        ctx.textAlign = "left";
+        ctx.fillText(playing, width * 0.05, canv.height * 0.99, maxWidth)
     }
 
 }
