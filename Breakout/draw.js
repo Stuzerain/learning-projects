@@ -75,7 +75,7 @@ function drawText() {
     }
 
     //music info
-    if (musicPlay) {
+    if (bgm.playing()) {
         let playing = `Now Playing: ${musicChoices[song]}`
         ctx.font = textSize/3 + "px " + TEXT_FONT;
         ctx.textAlign = "left";
@@ -119,6 +119,16 @@ function drawBricks() {
         }
     }
 }
+
+// function drawFloor() {
+//     if (pupFloor) {
+//         for (floor of floors) {
+//                         ctx.fillStyle = floor.color;
+//             ctx.fillRect(floor.left, floor.top, floor.w, floor.h)
+//         }
+//     }
+// }
+
 
 //red = 0, orange = 0.33, yellow = 0.67, green = 1
 function getBrickColor(rank, highestRank) {

@@ -9,13 +9,13 @@ function Ball() {
 
     this.setSpd = function(spdMult) {
         this.spd = Math.max(this.spd, BALL_SPD * height * spdMult);
-        console.log("spd=" + this.spd);
+        // console.log("spd=" + this.spd);
     }
 }
 
 function fetchCurrentSpd() {
     currentSpd = ball.spd;
-    console.log("currentSpd = " + currentSpd);
+    // console.log("currentSpd = " + currentSpd);
     return currentSpd;
 }
 
@@ -23,6 +23,7 @@ function newBall() {
     pupExtension = false;
     pupSticky = false;
     pupSuper = false;
+    pupBigBall = false;
     paddle = new Paddle();
     ball = new Ball();
 }
@@ -40,7 +41,10 @@ function serve() {
     }
     //random angle, between 45 and 135 degrees
     let angle = Math.random() * Math.PI / 2 + Math.PI / 4;
-    bgm.play();
+    if (!bgm.playing()) {
+        bgm.play();
+    };
+    
 
     //applyBallSpeed(pupSticky ? relativeBounce(ball.spd) : angle);
     if (!pupSticky) {
@@ -50,8 +54,8 @@ function serve() {
     } else if (pupSticky) {
         relativeBounce(currentSpd);
         fxPaddle.play();
-        console.log(ball.xv)
-        console.log(ball.yv)
+        // console.log(ball.xv)
+        // console.log(ball.yv)
         return true;
     }
 }

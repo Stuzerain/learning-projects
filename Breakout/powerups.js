@@ -12,6 +12,8 @@ const PupType = {
     LIFE: {color: "hotpink", symbol: "+"},
     STICKY: {color: "forestgreen", symbol: "~"},
     SUPER: {color: "purple", symbol: "s"},
+    BIGBALL: {color: "orange", symbol: "B"},
+    // FLOOR: {color: "gray", symbol: "F"}
 }
 
 function updatePups(delta) {

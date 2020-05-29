@@ -12,7 +12,7 @@ const MARGIN = 6; //number of empty rows above bricks
 const MAX_LEVEL = 10; //maximum game level (+2 rows of bricks per level)
 const GAME_LIVES = 3; //starting number of lives
 const KEY_SCORE = "highscore"; //save key for local storage of high score
-const PUP_CHANCE = 0.025; //chance of powerup dropping from broken brick (0-1)
+const PUP_CHANCE = 0.8; //chance of powerup dropping from broken brick (0-1)
 const PUP_SPD = 0.15; //powerup speed as faction of screen height/second
 const PUP_BONUS = 50; //bonus points for collecting redundant powerup
 const SOUND_ON = true; //volume toggle
@@ -40,10 +40,30 @@ document.body.appendChild(canv);
 var ctx = canv.getContext("2d");
 
 //set up sound effects
-var fxBrick = new Sound("sounds/brick.m4a", 2, 0.15);
-var fxPaddle = new Sound("sounds/paddle.m4a", 1, 0.15);
-var fxPowerUp = new Sound("sounds/powerup.m4a", 1, 0.15);
-var fxWall = new Sound("sounds/wall.m4a", 1, 0.15);
+
+//vanilla sound setups
+// var fxBrick = new Sound("sounds/brick.m4a", 2, 0.15);
+// var fxPaddle = new Sound("sounds/paddle.m4a", 1, 0.15);
+// var fxPowerUp = new Sound("sounds/powerup.m4a", 1, 0.15);
+// var fxWall = new Sound("sounds/wall.m4a", 1, 0.15);
+
+//sound setups using howler js
+var fxBrick = new Howl({
+    src: "sounds/brick.m4a",
+    volume: 0.15
+})
+var fxPaddle = new Howl({
+    src: "sounds/paddle.m4a",
+    volume: 0.15
+})
+var fxPowerUp = new Howl({
+    src: "sounds/powerup.m4a",
+    volume: 0.15
+})
+var fxWall = new Howl({
+    src: "sounds/wall.m4a",
+    volume: 0.15
+})
 
 
 //different songs for different levels
@@ -54,11 +74,26 @@ let musicChoices = ["kinshicho.mp3", "90s.mp3", "envy.mp3", "sodan.mp3", "tokyo.
 let song;
 song = Math.floor(Math.random() * (musicChoices.length))
 
-var bgm = new Sound(`sounds/music/${musicChoices[song]}`, 1, 0.1);
+//var bgm = new Sound(`sounds/music/${musicChoices[song]}`, 1, 0.1);
+
+var bgm = new Howl({
+    src: `sounds/music/${musicChoices[song]}`,
+    loop: true,
+    volume: 0.1,
+
+    // this.nextSong = function() {
+    //     if (song >= musicChoices.length - 1) {
+    //         song = 0;
+    //     } else if (song >= 0) {
+    //         song++
+    //     }
+    //     bgm.src = `sounds/music/${musicChoices[song]}`;     
+    // }
+})
 
 //game variables
 var paddle, ball, bricks = [], pups = [];
-var gameOver, win, pupExtension, pupSticky, pupSuper;
+var gameOver, win, pupExtension, pupSticky, pupSuper, pupBigBall, pupFloor;
 var level, lives, score, scoreHigh;
 var numBricks, textSize, touchX;
 var currentSpd;
@@ -157,41 +192,50 @@ function updateScore(brickScore) {
     }
 }
 
-function Sound(src, maxStreams = 1, vol = 1.0) {
-    this.src = src;
-    this.streamNum = 0;
-    this.streams = [];
-    for (var i = 0; i < maxStreams; i = i + 1) {
-        this.streams.push(new Audio(src));
-        this.streams[i].volume = vol;
-    }
+// function Sound(src, maxStreams = 1, vol = 1.0) {
+//     this.src = src;
+//     this.streamNum = 0;
+//     this.streams = [];
+//     for (var i = 0; i < maxStreams; i = i + 1) {
+//         this.streams.push(new Audio(src));
+//         this.streams[i].volume = vol;
+//     }
 
-    this.play = function() {
-        if (SOUND_ON) {
-        this.streamNum = (this.streamNum + 1) % maxStreams;
-        this.streams[this.streamNum].play();
-        musicPlay = true;
-        }
-    }
+//     this.play = function() {
+//         if (SOUND_ON) {
+//         this.streamNum = (this.streamNum + 1) % maxStreams;
+//         this.streams[this.streamNum].play();
+//         musicPlay = true;
+//         }
+//     }
 
-    this.pause = function() {
-        this.streams[this.streamNum].pause();
-        musicPlay = false;
-    }
+//     this.pause = function() {
+//         this.streams[this.streamNum].pause();
+//         musicPlay = false;
+//     }
 
-    this.stop = function() {
-        this.streams[this.streamNum].pause();
-        this.streams[this.streamNum].currentTime = 0;
-        musicPlay = false;
-    }
+//     this.stop = function() {
+//         this.streams[this.streamNum].pause();
+//         this.streams[this.streamNum].currentTime = 0;
+//         musicPlay = false;
+//     }
 
-    this.next = function () {
-        if (song >= musicChoices.length - 1) {
-            song = 0;
-        } else if (song >= 0) {
-            song++
-        }
-        this.src = `sounds/music/${musicChoices[song]}`;     
+//     this.next = function () {
+//         if (song >= musicChoices.length - 1) {
+//             song = 0;
+//         } else if (song >= 0) {
+//             song++
+//         }
+//         this.src = `sounds/music/${musicChoices[song]}`;     
         
+//     }
+// }
+
+function nextSong() {
+    if (song >= musicChoices.length - 1) {
+        song = 0;
+    } else if (song >= 0) {
+        song++
     }
+    bgm.src = `sounds/music/${musicChoices[song]}`;     
 }

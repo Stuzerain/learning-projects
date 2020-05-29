@@ -22,6 +22,38 @@ function Brick(left, top, w, h, color, score, spdMult) {
     }
 }
 
+// function Floor(left, top, w, h, color, score, spdMult) {
+//     this.w = w;
+//     this.h = h;
+//     this.bot = top + h;
+//     this.left = left;
+//     this.right = left + w;
+//     this.top = top;
+//     this.color = color;
+//     this.score = score;
+//     this.spdMult = spdMult;
+
+
+//     this.intersect = function(ball) {
+//         let bBot = ball.y + ball.h * 0.5
+//         let bLeft = ball.x - ball.w * 0.5
+//         let bRight = ball.x + ball.w * 0.5
+//         let bTop = ball.y - ball.h * 0.5
+//         return this.left < bRight
+//             && bLeft < this.right
+//             && this.bot > bTop
+//             && bBot > this.top;
+//     }
+// }
+
+// function createFloor() {
+//     floors = [];
+
+//     for (i = 0; i < 1; i++) {
+//     new Floor(500, 500, canv.width, 10, "red", 10, 1);
+//     }
+// }
+
 function createBricks() {
         
     //row dimensions 

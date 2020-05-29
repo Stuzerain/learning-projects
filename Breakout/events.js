@@ -32,17 +32,22 @@
             bgm.pause();
             break;
         case 88: //x key plays music
+        if (!bgm.playing()) {
             bgm.play();
+        }
             break;
 
             //not currently functional
-        // case 83: //s key selects next music
-        //     bgm.next();
-        //     break;
-        // case 85: //u key views queued song 
-        //     console.log(bgm);
-        //     break;
-    }
+    //     case 83: //s key selects next music
+    //         bgm.unload();
+    //         bgm.load()
+    //         nextSong();
+            
+    //         break;
+    //     case 85: //u key views queued song 
+    //         console.log(bgm);
+    //         break;
+     }
 }
 
 function keyUp(ev) {

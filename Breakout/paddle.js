@@ -80,12 +80,30 @@ function updatePaddle(delta) {
                             pupSticky = true;
                         } break;
                 case PupType.SUPER:
-                    //double width of paddle
+                    //ball moves through destroyed blocks instead of bouncing
                     if (pupSuper) {
                         score += PUP_BONUS;
                     } else {
                         pupSuper = true;
                     } break;
+                case PupType.BIGBALL: 
+                    //make ball 1.5x faster
+                    if (pupBigBall) {
+                        score += PUP_BONUS;
+                    } else {
+                        pupBigBall = true;
+                        ball.w *= 2;
+                        ball.h*= 2
+                    } break;
+                // case PupType.FLOOR: 
+                // //add floor below paddle that will bounce the ball after 1 miss and then be destroyed
+                // if (pupFloor) {
+                //     score += PUP_BONUS;
+                // } else {
+                //     pupFloor = true;
+                //     createFloor();
+                //     drawFloor();
+                // }
             }
             pups.splice(i, 1);
             fxPowerUp.play();
