@@ -396,7 +396,7 @@ let villagers = [
     {name: 'Lopez', species: 'Deer', personality: 'Smug', amiibo: true},
     {name: 'Kidd', species: 'Goat', personality: 'Smug', amiibo: true},
     {name: 'Klaus', species: 'Bear', personality: 'Smug', amiibo: true},
-    {name: 'Kyle', speces: 'Wolf', personality: 'Smug', amiibo: true},
+    {name: 'Kyle', species: 'Wolf', personality: 'Smug', amiibo: true},
     {name: 'Leopold', species: 'Lion', personality: 'Smug', amiibo: true},
     {name: 'Marshal', species: 'Squirrel', personality: 'Smug', amiibo: true},
     {name: 'Shep', species: 'Dog', personality: 'Smug', amiibo: true},

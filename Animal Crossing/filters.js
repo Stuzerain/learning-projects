@@ -3,7 +3,7 @@
 let sortDirection = false;
 
 window.onload = () => {
-    loadTableData(villagers)
+    loadTableData(villagers);
 }
 
 function loadTableData(villagers) {
@@ -19,31 +19,60 @@ function loadTableData(villagers) {
     tableBody.innerHTML = dataHtml;
 }
 
-function sortColumn(columnName) {
-    const dataType = typeof villagers[0][columnName];
-    sortDirection = !sortDirection;
+/**
+ * sorts HTML table
+ * 
+ * @param {HTMLTableElement} table - the table to sort 
+ * @param {number} column - index of the column to sort
+ * @param {boolean} asc - determines ascending vs descending
+ * 
+ */
 
-    switch(dataType) {
-        case 'string':
-        sortTextColumn(sortDirection, columnName);
-        break;
- }
+function sortTableByColumn(table, column, asc = true) {
+    const dirMod = asc ? 1 : -1;
+    const tBody = table.tBodies[0];
+    const rows = Array.from(tBody.querySelectorAll("tr"));
 
-    loadTableData(villagers);
+    //sort each row
+    const sortedRows = rows.sort((a, b) => {
+        const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+        const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+
+        return aColText > bColText ? (1 * dirMod) : (-1 * dirMod);
+    })
+
+    //remove existing TRs from table
+    while (tBody.firstChile) {
+        tBody.removeChile(tBody.firstChild);
+    }
+
+    //add back newly sorted TR
+    tBody.append(...sortedRows);
+
+    //remember how coulmn is currently sorted
+    table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+    table.querySelector(`th:nth-child(${ column + 1 })`).classList.toggle("th-sort-asc", asc);
+    table.querySelector(`th:nth-child(${ column + 1 })`).classList.toggle("th-sort-desc", !asc);
 }
 
-function sortTextColumn(sort, columnName) {
-    villagers = villagers.sort((p1, p2) => {
-        return sort ? (p1[columnName] > p2[columnName]) - (p1[columnName] < p2[columnName]) :
-        (p2[columnName] > p1[columnName]) - (p2[columnName] < p1[columnName])
-    });
-}
-
+document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+    headerCell.addEventListener("click", () => {
+        const tableElement = headerCell.parentElement.parentElement.parentElement;
+        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+   
+        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+    })
+})
 
 
 //console options
 
-//search for villager by name (must be in quotes)
+/**search for villager by name in the console and return villager object
+ * 
+ * @param {string} vilName - the name of the villager, in single or double quotes
+ * 
+ */
 function villagerLookup(vilName) {
     for (let i = 0; i < villagers.length; i++) {
         if (villagers[i].name == vilName ) {
@@ -55,7 +84,11 @@ function villagerLookup(vilName) {
 //initializing empty array for creating arbitrary set of villagers
 let myVillage = []
 
-//adds villagers to myVillage array
+/**adds villagers to a myVillage array
+ * 
+ * @param {string} vilName - the name of the villager, in single or double quotes
+ * 
+ */
 function updateVillage(vilName) {
     myVillage.push(villagerLookup(vilName));
 }

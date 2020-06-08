@@ -13,6 +13,11 @@ td, th {
 th {
     font-weight: bold;
     text-transform: uppercase;
+
+}
+
+th {
+background-color: #82FF96
 }
 
 tr:nth-child(even) {
@@ -22,5 +27,27 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #82FF96;
     color: #0a1e0a;
+}
+
+.table-sortable th {
+    cursor: pointer;
+}
+
+.table-sortable .th-sort-asc::after {
+    content: "\25b4";
+}
+
+.table-sortable .th-sort-desc::after {
+    content: "\25be";
+}
+
+.table-sortable .th-sort-asc::after, 
+.table-sortable .th-sort-desc::after {
+    margin-left: 5px;
+}
+
+.table-sortable .th-sort-asc, 
+.table-sortable .th-sort-desc {
+    background: rgba(30, 180, 68, 0.568)
 }
 
