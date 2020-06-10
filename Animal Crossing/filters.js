@@ -1,6 +1,7 @@
 //table options
 
 let sortDirection = false;
+// let outputText = "";
 
 window.onload = () => {
     loadTableData(villagers);
@@ -9,13 +10,13 @@ window.onload = () => {
 function loadTableData(villagers) {
     const tableBody = document.getElementById('tableData');
     let dataHtml = '';
+    // var img = document.createElement('img');
+    // img.src = villagers.poster
 
     for (let villager of villagers) {
         dataHtml += `<tr><td>${villager.name}</td><td>${villager.species}</td>
-        <td>${villager.personality}</td><td>${villager.amiibo}</td></tr>`;
+        <td>${villager.personality}</td><td>${villager.amiibo}</td><td><img src ="${villager.poster}" /></td></tr>`;
     }
-    //console.log(dataHtml)
-
     tableBody.innerHTML = dataHtml;
 }
 
@@ -27,7 +28,6 @@ function loadTableData(villagers) {
  * @param {boolean} asc - determines ascending vs descending
  * 
  */
-
 function sortTableByColumn(table, column, asc = true) {
     const dirMod = asc ? 1 : -1;
     const tBody = table.tBodies[0];
@@ -49,7 +49,7 @@ function sortTableByColumn(table, column, asc = true) {
     //add back newly sorted TR
     tBody.append(...sortedRows);
 
-    //remember how coulmn is currently sorted
+    //remember how column is currently sorted
     table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
     table.querySelector(`th:nth-child(${ column + 1 })`).classList.toggle("th-sort-asc", asc);
     table.querySelector(`th:nth-child(${ column + 1 })`).classList.toggle("th-sort-desc", !asc);
@@ -65,6 +65,20 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
     })
 })
 
+// /**used by seach bar form to search for Villagers--not currently functional
+//  * 
+//  * @param {*} vilName 
+//  */
+// function searchVillagers() {
+//     let q = document.forms["search_form"]["search_query"].value;
+//     outputText = "";
+//     for (let i = 0; i < villagers.length; i++)
+//         if (villagers[i].name.search(q) != -1) {
+//             villagers += villagers[i]
+//             break;
+//         }
+//         console.log(outputText);
+// }
 
 //console options
 
