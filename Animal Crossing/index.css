@@ -57,3 +57,34 @@ img {
     margin-right: auto;
     width: 50%;
 }
+
+.addButton {
+    border-radius: 12px;
+    border: #0a1e0a;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.75;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+    
+}
+
+.addButton:active {
+box-shadow: 0 5px #666;
+transform: translateY(4px);
+}
+
+.addButton:hover {
+    border-radius: 12px;
+    border: #0a1e0a;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #0a1e0a;
+    color: white;
+    opacity: 1
+}
+
+.addButtonHead {
+    font-size: 75%;
+}

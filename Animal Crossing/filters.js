@@ -9,14 +9,26 @@ window.onload = () => {
 
 function loadTableData(villagers) {
     const tableBody = document.getElementById('tableData');
+    const tableHead = document.getElementById('tableHead');
     let dataHtml = '';
+    let btn = document.createElement('button')
+    btn.innerHTML = "ADD"
+
     // var img = document.createElement('img');
     // img.src = villagers.poster
 
     for (let villager of villagers) {
-        dataHtml += `<tr><td>${villager.name}</td><td>${villager.species}</td>
-        <td>${villager.personality}</td><td>${villager.amiibo}</td><td><img src ="${villager.poster}" /></td></tr>`;
+        dataHtml += `<tr>
+            <td>${villager.name}</td>
+            <td>${villager.species}</td>
+            <td>${villager.personality}</td>
+            <td>${villager.amiibo}</td>
+            <td><img src ="${villager.poster}" /></td>
+            <td><button class="addButton" onClick="">ADD</button></td>
+            <td id='btnCol'>${tableBody.appendChild(btn)}</td>
+        </tr>`; //btnCol should be correct way to add buttons via DOM, but just returns [object HTMLButtonElement]
     }
+    tableHead.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
     tableBody.innerHTML = dataHtml;
 }
 
@@ -72,7 +84,7 @@ document.querySelectorAll(".table-sortable th").forEach(headerCell => {
 // function searchVillagers() {
 //     let q = document.forms["search_form"]["search_query"].value;
 //     outputText = "";
-//     for (let i = 0; i < villagers.length; i++)
+//     for (let villager of villagers)
 //         if (villagers[i].name.search(q) != -1) {
 //             villagers += villagers[i]
 //             break;
