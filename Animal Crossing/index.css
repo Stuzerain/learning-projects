@@ -1,90 +1,89 @@
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 90%;
-    color: #0a1e0a
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 90%;
+	color: #0a1e0a;
 }
 
-td, th {
-    border: 1px solid #cccccc;
-    padding: 8px;
+td,
+th {
+	border: 1px solid #cccccc;
+	padding: 8px;
 }
 
 th {
-    font-weight: bold;
-    text-transform: uppercase;
-
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 th {
-background-color: #82FF96
+	background-color: #82ff96;
 }
 
 tr:nth-child(even) {
-    background-color: #96f5f5;
+	background-color: #96f5f5;
 }
 
 tr:hover {
-    background-color: #82FF96;
-    color: #0a1e0a;
+	background-color: #82ff96;
+	color: #0a1e0a;
 }
 
 .table-sortable th {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .table-sortable .th-sort-asc::after {
-    content: "\25b4";
+	content: "\25b4";
 }
 
 .table-sortable .th-sort-desc::after {
-    content: "\25be";
+	content: "\25be";
 }
 
-.table-sortable .th-sort-asc::after, 
+.table-sortable .th-sort-asc::after,
 .table-sortable .th-sort-desc::after {
-    margin-left: 5px;
+	margin-left: 5px;
 }
 
-.table-sortable .th-sort-asc, 
+.table-sortable .th-sort-asc,
 .table-sortable .th-sort-desc {
-    background: rgba(30, 180, 68, 0.568)
+	background: rgba(30, 180, 68, 0.568);
 }
 
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
 }
 
 .addButton {
-    border-radius: 12px;
-    border: #0a1e0a;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.75;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
-    
+	border-radius: 12px;
+	border: #0a1e0a;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.75;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .addButton:active {
-box-shadow: 0 5px #666;
-transform: translateY(4px);
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
 }
 
 .addButton:hover {
-    border-radius: 12px;
-    border: #0a1e0a;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #0a1e0a;
-    color: white;
-    opacity: 1
+	border-radius: 12px;
+	border: #0a1e0a;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #0a1e0a;
+	color: white;
+	opacity: 1;
 }
 
 .addButtonHead {
-    font-size: 75%;
+	font-size: 75%;
 }

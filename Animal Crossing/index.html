@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Villager Information</title>
-    <link type="text/css" rel="stylesheet" href="index.css">
-
-</head>
-<body>
-
-    <!-- <form name="search_form" action="javascript:searchVillagers();">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Villager Information</title>
+		<link type="text/css" rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<!-- <form name="search_form" action="javascript:searchVillagers();">
         <input type="text" name="search_query">
         <input type="submit" name="Search">
     </form> -->
-    <button name="table_reset" onClick="loadTableData(villagers)">Reset Table</button>
-    <table class="table table-sortable">
-        <thead id="tableHead">
-            <tr>
-                <th>Name</th>
-                <th>Species</th>
-                <th>Personality</th>
-                <th>Amiibo</th>
-                <th class="poster">Poster</th>
-                <th class="addButtonHead">Add to Village?</th>
-            </tr>
-        </thead>
+		<button name="table_reset" onClick="loadTableData(villagers)">
+			Reset Table
+		</button>
+		<table class="table table-sortable">
+			<thead id="tableHead">
+				<tr>
+					<th>Name</th>
+					<th>Species</th>
+					<th>Personality</th>
+					<th>Amiibo</th>
+					<th class="poster">Poster</th>
+					<th class="addButtonHead">Add to Village?</th>
+				</tr>
+			</thead>
 
-        <tbody id="tableData"></tbody>
-        
+			<tbody id="tableData"></tbody>
+		</table>
 
-
-    </table>
-
-    <script src="villagers.js"></script>
-    <script src="filters.js"></script>
-    
-</body>
+		<script src="villagers.js"></script>
+		<script src="filters.js"></script>
+	</body>
 </html>

@@ -1,0 +1,106 @@
+.App {
+	text-align: left;
+}
+
+.App-logo {
+	height: 6vmin;
+	align-self: center;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+		animation: App-logo-spin infinite 25s linear;
+	}
+}
+
+.App-header {
+	background-color: #cccccc;
+	min-height: 6svh;
+	display: flex;
+	flex-direction: row;
+	padding-left: 6px;
+	justify-content: left;
+	font-size: calc(3px + 2vmin);
+	color: #0a1e0a;
+}
+
+.App-link {
+	padding-left: 15px;
+	color: lightgreen;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 90%;
+	color: #0a1e0a;
+}
+
+td,
+th {
+	border: 1px solid #cccccc;
+	padding: 8px;
+}
+
+th {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+th {
+	background-color: #82ff96;
+}
+
+tr:nth-child(even) {
+	background-color: #96f5f5;
+}
+
+tr:hover {
+	background-color: #82ff96;
+	color: #0a1e0a;
+}
+
+table {
+	width: 100%;
+	max-width: 100vw;
+}
+
+.addButton {
+	border-radius: 12px;
+	border: #0a1e0a;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.75;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.addButton:active {
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+.addButton:focus {
+	border-radius: 12px;
+	border: #0a1e0a;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #0a1e0a;
+	color: white;
+	opacity: 1;
+}
+
+.addButtonHead {
+	font-size: 75%;
+}
