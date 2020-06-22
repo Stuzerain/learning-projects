@@ -1,0 +1,102 @@
+:root {
+	--primary: #82ff96;
+	--danger: red;
+	--white: white;
+	--dark: black;
+}
+
+.btn {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+}
+
+/* Button colors and styles */
+
+.btn--primary--solid {
+	background-color: var(--primary);
+	color: var(--white);
+	border: none;
+	margin: 4px;
+	/* display: block;
+	margin-left: auto;
+	margin-right: auto; */
+}
+
+.btn--danger--solid {
+	background-color: var(--danger);
+	color: var(--white);
+	border: none;
+	margin: 4px;
+	/* display: block;
+	margin-left: auto;
+	margin-right: auto; */
+}
+
+.btn--primary--outline {
+	background-color: var(--white);
+	color: var(--black);
+	border: solid var(--primary);
+	margin: 4px;
+	/* display: block;
+	margin-left: auto;
+	margin-right: auto; */
+}
+.btn--danger--outline {
+	background-color: var(--white);
+	color: var(--black);
+	border: solid var(--danger);
+	margin: 4px;
+	/* display: block;
+	margin-left: auto;
+	margin-right: auto; */
+}
+
+/* Button sizes */
+
+.btn--medium {
+	padding: 10px 20px;
+	font-size: 18px;
+}
+
+.btn--large {
+	padding: 15px 30px;
+	font-size: 20px;
+}
+
+/* Styles from original vanilla JS page */
+/* button {
+	border-radius: 12px;
+	border: #0a1e0a;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.75;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+} */
+
+/* .addButton:active {
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+.addButton:focus {
+	border-radius: 12px;
+	border: #0a1e0a;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #0a1e0a;
+	color: white;
+	opacity: 1;
+}
+
+.addButtonHead {
+	font-size: 75%;
+} */

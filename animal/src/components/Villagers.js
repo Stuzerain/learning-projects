@@ -5,6 +5,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Alice_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Annalisa",
@@ -12,6 +13,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Annalisa_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Aurora",
@@ -19,6 +21,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Aurora_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ava",
@@ -26,6 +29,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ava_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bea",
@@ -33,6 +37,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bea_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bertha",
@@ -40,6 +45,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bertha_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bettina",
@@ -47,6 +53,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bettina_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cally",
@@ -54,6 +61,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cally_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Caroline",
@@ -61,6 +69,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Caroline_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Carrie",
@@ -68,6 +77,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Carrie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Celia",
@@ -75,6 +85,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Celia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Chevre",
@@ -82,6 +93,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Chevre_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Coco",
@@ -89,6 +101,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Coco_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Daisy",
@@ -96,6 +109,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Daisy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Deena",
@@ -103,6 +117,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Deena_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Dora",
@@ -110,6 +125,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Dora_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ellie",
@@ -117,6 +133,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ellie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Eunice",
@@ -124,6 +141,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Eunice_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Fauna",
@@ -131,6 +149,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Fauna_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Flurry",
@@ -138,6 +157,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Flurry_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gala",
@@ -145,6 +165,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gala_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gayle",
@@ -152,6 +173,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gayle_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gladys",
@@ -159,6 +181,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gladys_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Goldie",
@@ -166,6 +189,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Goldie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Jambette",
@@ -173,6 +197,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Jambette_s poster.png",
+		liked: false,
 	},
 	{
 		name: "June",
@@ -180,6 +205,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-June_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kiki",
@@ -187,6 +213,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kiki_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kitt",
@@ -194,6 +221,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kitt_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lily",
@@ -201,6 +229,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lily_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lolly",
@@ -208,6 +237,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lolly_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lucy",
@@ -215,6 +245,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lucy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Maggie",
@@ -222,6 +253,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Maggie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Maple",
@@ -229,6 +261,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Maple_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Marcie",
@@ -236,6 +269,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Marcie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Margie",
@@ -243,6 +277,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Margie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Marina",
@@ -250,6 +285,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Marina_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Megan",
@@ -257,6 +293,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Megan_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Melba",
@@ -264,6 +301,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Melba_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Merengue",
@@ -271,6 +309,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Merengue_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Midge",
@@ -278,6 +317,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Midge_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Mitzi",
@@ -285,6 +325,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Mitzi_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Molly",
@@ -292,6 +333,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Molly_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Nan",
@@ -299,6 +341,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Nan_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Nana",
@@ -306,6 +349,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Nana_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Norma",
@@ -313,6 +357,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Norma_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Olive",
@@ -320,6 +365,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Olive_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Peaches",
@@ -327,6 +373,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Peaches_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pekoe",
@@ -334,6 +381,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pekoe_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Poppy",
@@ -341,6 +389,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Poppy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rhonda",
@@ -348,6 +397,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rhonda_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sally",
@@ -355,6 +405,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sally_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sandy",
@@ -362,6 +413,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sandy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Savannah",
@@ -369,6 +421,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Savannah_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Skye",
@@ -376,6 +429,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Skye_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Stella",
@@ -383,6 +437,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Stella_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sydney",
@@ -390,6 +445,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sydney_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sylvana",
@@ -397,6 +453,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sylvana_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tia",
@@ -404,6 +461,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Vesta",
@@ -411,6 +469,7 @@ let Villagers = [
 		personality: "Normal",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Vesta_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Agent S",
@@ -418,6 +477,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Agent S_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Anabelle",
@@ -425,6 +485,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Anabelle_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Anicotti",
@@ -432,6 +493,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Anicotti_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Apple",
@@ -439,6 +501,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Apple_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Audie",
@@ -446,6 +509,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Audie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bangle",
@@ -453,6 +517,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bangle_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bella",
@@ -460,6 +525,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bella_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bianca",
@@ -467,6 +533,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bianca_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bluebear",
@@ -474,6 +541,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bluebear_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bonbon",
@@ -481,6 +549,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bonbon_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bubbles",
@@ -488,6 +557,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bubbles_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bunnie",
@@ -495,6 +565,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bunnie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Candi",
@@ -502,6 +573,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Candi_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Carmen",
@@ -509,6 +581,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Carmen_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cheri",
@@ -516,6 +589,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cheri_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Chrissy",
@@ -523,6 +597,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Chrissy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cookie",
@@ -530,6 +605,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cookie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Dotty",
@@ -537,6 +613,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Dotty_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Felicity",
@@ -544,6 +621,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Felicity_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Flora",
@@ -551,6 +629,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Flora_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Freckles",
@@ -558,6 +637,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Freckles_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gabi",
@@ -565,6 +645,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gabi_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ketchup",
@@ -572,6 +653,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ketchup_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Maddie",
@@ -579,6 +661,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Maddie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Merry",
@@ -586,6 +669,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Merry_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Nibbles",
@@ -593,6 +677,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Nibbles_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pango",
@@ -600,6 +685,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pango_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pate",
@@ -607,6 +693,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pate_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Patty",
@@ -614,6 +701,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Patty_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Peanut",
@@ -621,6 +709,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Peanut_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Peggy",
@@ -628,6 +717,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Peggy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Penelope",
@@ -635,6 +725,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Penelope_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pinky",
@@ -642,6 +733,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pinky_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Piper",
@@ -649,6 +741,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Piper_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pippy",
@@ -656,6 +749,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pippy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pompom",
@@ -663,6 +757,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pompom_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Puddles",
@@ -670,6 +765,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Puddles_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rosie",
@@ -677,6 +773,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rosie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ruby",
@@ -684,6 +781,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ruby_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sprinkle",
@@ -691,6 +789,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sprinkle_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tabby",
@@ -698,6 +797,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tabby_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tammi",
@@ -705,6 +805,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tammi_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tangy",
@@ -712,6 +813,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tangy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Truffles",
@@ -719,6 +821,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Truffles_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tutu",
@@ -726,6 +829,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tutu_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Twiggy",
@@ -733,6 +837,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Twiggy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Victoria",
@@ -740,6 +845,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Victoria_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Wendy",
@@ -747,6 +853,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Wendy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Winnie",
@@ -754,6 +861,7 @@ let Villagers = [
 		personality: "Peppy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Winnie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Agnes",
@@ -761,6 +869,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Agnes_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Canberra",
@@ -768,6 +877,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Canberra_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Charlise",
@@ -775,6 +885,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Charlise_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cherry",
@@ -782,6 +893,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cherry_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Deirdre",
@@ -789,6 +901,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Deirdre_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Diva",
@@ -796,6 +909,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Diva_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Flo",
@@ -803,6 +917,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Flo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Frita",
@@ -810,6 +925,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Frita_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Fuchsia",
@@ -817,6 +933,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Fuchsia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hazel",
@@ -824,6 +941,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hazel_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Katt",
@@ -831,6 +949,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Katt_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Mira",
@@ -838,6 +957,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Mira_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Muffy",
@@ -845,6 +965,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Muffy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pashmina",
@@ -852,6 +973,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pashmina_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Paula",
@@ -859,6 +981,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Paula_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Phoebe",
@@ -866,6 +989,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Phoebe_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Plucky",
@@ -873,6 +997,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Plucky_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Reneigh",
@@ -880,6 +1005,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Reneigh_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Renee",
@@ -887,6 +1013,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Renee_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rocket",
@@ -894,6 +1021,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rocket_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Shari",
@@ -901,6 +1029,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Shari_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sylvia",
@@ -908,6 +1037,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sylvia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tammy",
@@ -915,6 +1045,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tammy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ursala",
@@ -922,6 +1053,7 @@ let Villagers = [
 		personality: "Sisterly",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ursala_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Alli",
@@ -929,6 +1061,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Alli_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Amelia",
@@ -936,6 +1069,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Amelia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ankha",
@@ -943,6 +1077,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ankha_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Annalise",
@@ -950,6 +1085,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Annalise_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Astrid",
@@ -957,6 +1093,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Astrid_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Baabara",
@@ -964,6 +1101,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Baabara_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Becky",
@@ -971,6 +1109,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Becky_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bitty",
@@ -978,6 +1117,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bitty_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Blaire",
@@ -985,6 +1125,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Blaire_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Blanche",
@@ -992,6 +1133,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Blanche_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bree",
@@ -999,6 +1141,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bree_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Broffina",
@@ -1006,6 +1149,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Broffina_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cashmere",
@@ -1013,6 +1157,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cashmere_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Claudia",
@@ -1020,6 +1165,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Claudia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cleo",
@@ -1027,6 +1173,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cleo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Diana",
@@ -1034,6 +1181,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Diana_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Elise",
@@ -1041,6 +1189,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Elise_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Eloise",
@@ -1048,6 +1197,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Eloise_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Francine",
@@ -1055,6 +1205,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Francine_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Freya",
@@ -1062,6 +1213,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Freya_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Friga",
@@ -1069,6 +1221,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Friga_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gigi",
@@ -1076,6 +1229,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gigi_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gloria",
@@ -1083,6 +1237,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gloria_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Greta",
@@ -1090,6 +1245,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Greta_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gwen",
@@ -1097,6 +1253,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gwen_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Judy",
@@ -1104,6 +1261,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Judy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Julia",
@@ -1111,6 +1269,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Julia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kitty",
@@ -1118,6 +1277,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kitty_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Maelle",
@@ -1125,6 +1285,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Maelle_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Mallary",
@@ -1132,6 +1293,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Mallary_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Mathilda",
@@ -1139,6 +1301,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Mathilda_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Mint",
@@ -1146,6 +1309,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Mint_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Miranda",
@@ -1153,6 +1317,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Miranda_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Monique",
@@ -1160,6 +1325,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Monique_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Naomi",
@@ -1167,6 +1333,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Naomi_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Olivia",
@@ -1174,6 +1341,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Olivia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Opal",
@@ -1181,6 +1349,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Opal_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pancetti",
@@ -1188,6 +1357,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pancetti_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pecan",
@@ -1195,6 +1365,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pecan_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Portia",
@@ -1202,6 +1373,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Portia_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Purrl",
@@ -1209,6 +1381,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Purrl_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Queenie",
@@ -1216,6 +1389,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Queenie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Robin",
@@ -1223,6 +1397,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Robin_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Snooty",
@@ -1230,6 +1405,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Snooty_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Soleil",
@@ -1237,6 +1413,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Soleil_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tasha",
@@ -1244,6 +1421,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tasha_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tiffany",
@@ -1251,6 +1429,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tiffany_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Timbra",
@@ -1258,6 +1437,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Timbra_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tipper",
@@ -1265,6 +1445,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tipper_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Velma",
@@ -1272,6 +1453,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Velma_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Violet",
@@ -1279,6 +1461,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Violet_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Vivian",
@@ -1286,6 +1469,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Vivian_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Whitney",
@@ -1293,6 +1477,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Whitney_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Willow",
@@ -1300,6 +1485,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Willow_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Yuka",
@@ -1307,6 +1493,7 @@ let Villagers = [
 		personality: "Snooty",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Yuka_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kabuki",
@@ -1314,6 +1501,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kabuki_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hopper",
@@ -1321,6 +1509,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hopper_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ike",
@@ -1328,6 +1517,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ike_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gonzo",
@@ -1335,6 +1525,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gonzo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gaston",
@@ -1342,6 +1533,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gaston_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Gruff",
@@ -1349,6 +1541,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Gruff_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Groucho",
@@ -1356,6 +1549,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Groucho_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Grizzly",
@@ -1363,6 +1557,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Grizzly_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hamphrey",
@@ -1370,6 +1565,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hamphrey_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Harry",
@@ -1377,6 +1573,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Harry_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Dobie",
@@ -1384,6 +1581,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Dobie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Curt",
@@ -1391,6 +1589,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Curt_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Croque",
@@ -1398,6 +1597,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Croque_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cyrano",
@@ -1405,6 +1605,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cyrano_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cyd",
@@ -1412,6 +1613,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Cyd_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Del",
@@ -1419,6 +1621,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Del_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Fang",
@@ -1426,6 +1629,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Fang_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Elvis",
@@ -1433,6 +1637,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Elvis_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Frank",
@@ -1440,6 +1645,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Frank_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Angus",
@@ -1447,6 +1653,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Angus_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Admiral",
@@ -1454,6 +1661,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Admiral_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Apollo",
@@ -1461,6 +1669,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Apollo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Avery",
@@ -1468,6 +1677,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Avery_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Camofrog",
@@ -1475,6 +1685,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Camofrog_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Butch",
@@ -1482,6 +1693,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Butch_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Buzz",
@@ -1489,6 +1701,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Buzz_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Boris",
@@ -1496,6 +1709,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Boris_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Boyd",
@@ -1503,6 +1717,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Boyd_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bruce",
@@ -1510,6 +1725,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bruce_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Chow",
@@ -1517,6 +1733,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Chow_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Chief",
@@ -1524,6 +1741,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Chief_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cesar",
@@ -1531,6 +1749,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cesar_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Peewee",
@@ -1538,6 +1757,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Peewee_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Octavian",
@@ -1545,6 +1765,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Octavian_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Murphy",
@@ -1552,6 +1773,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Murphy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Limberg",
@@ -1559,6 +1781,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Limberg_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lobo",
@@ -1566,6 +1789,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lobo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Knox",
@@ -1573,6 +1797,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Knox_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Monty",
@@ -1580,6 +1805,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Monty_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Static",
@@ -1587,6 +1813,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Static_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Spike",
@@ -1594,6 +1821,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Spike_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ricky",
@@ -1601,6 +1829,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ricky_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rasher",
@@ -1608,6 +1837,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rasher_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rizzo",
@@ -1615,6 +1845,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rizzo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rocco",
@@ -1622,6 +1853,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rocco_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rolf",
@@ -1629,6 +1861,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rolf_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rooney",
@@ -1636,6 +1869,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rooney_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Roscoe",
@@ -1643,6 +1877,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Roscoe_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tom",
@@ -1650,6 +1885,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tom_s poster.png",
+		liked: false,
 	},
 	{
 		name: "T-Bone",
@@ -1657,6 +1893,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-T-Bone_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Vladimir",
@@ -1664,6 +1901,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Vladimir_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Vic",
@@ -1671,6 +1909,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Vic_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Wart Jr",
@@ -1678,6 +1917,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Wart jr._s poster.png",
+		liked: false,
 	},
 	{
 		name: "Walt",
@@ -1685,6 +1925,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Walt_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Wolfgang",
@@ -1692,6 +1933,7 @@ let Villagers = [
 		personality: "Cranky",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Wolfgang_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Jitters",
@@ -1699,6 +1941,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Jitters_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Jay",
@@ -1706,6 +1949,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Jay_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Iggly",
@@ -1713,6 +1957,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Iggly_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Genji",
@@ -1720,6 +1965,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Genji_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Frobert",
@@ -1727,6 +1973,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Frobert_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Goose",
@@ -1734,6 +1981,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Goose_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hamlet",
@@ -1741,6 +1989,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hamlet_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Dom",
@@ -1748,6 +1997,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Dom_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Curly",
@@ -1755,6 +2005,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Curly_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Drift",
@@ -1762,6 +2013,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Drift_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Flip",
@@ -1769,6 +2021,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Flip_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Biff",
@@ -1776,6 +2029,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Biff_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bill",
@@ -1783,6 +2037,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bill_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Billy",
@@ -1790,6 +2045,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Billy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bam",
@@ -1797,6 +2053,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bam_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Antonio",
@@ -1804,6 +2061,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Antonio_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Axel",
@@ -1811,6 +2069,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Axel_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bud",
@@ -1818,6 +2077,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bud_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Buck",
@@ -1825,6 +2085,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Buck_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Boots",
@@ -1832,6 +2093,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Boots_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Boone",
@@ -1839,6 +2101,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Boone_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cobb",
@@ -1846,6 +2109,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cobb_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Coach",
@@ -1853,6 +2117,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Coach_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cousteau",
@@ -1860,6 +2125,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cousteau_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Poncho",
@@ -1867,6 +2133,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Poncho_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Peck",
@@ -1874,6 +2141,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Peck_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pierce",
@@ -1881,6 +2149,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pierce_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Mott",
@@ -1888,6 +2157,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Mott_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Mac",
@@ -1895,6 +2165,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Mac_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lyman",
@@ -1902,6 +2173,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lyman_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Louie",
@@ -1909,6 +2181,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Louie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kevin",
@@ -1916,6 +2189,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kevin_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kid Cat",
@@ -1923,6 +2197,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kid Cat_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kody",
@@ -1930,6 +2205,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kody_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Leonardo",
@@ -1937,6 +2213,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Leonardo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Moose",
@@ -1944,6 +2221,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Moose_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sprocket",
@@ -1951,6 +2229,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sprocket_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sparro",
@@ -1958,6 +2237,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sparro_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sly",
@@ -1965,6 +2245,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sly_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Snake",
@@ -1972,6 +2253,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Snake_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Samson",
@@ -1979,6 +2261,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Samson_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rudy",
@@ -1986,6 +2269,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rudy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rowan",
@@ -1993,6 +2277,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rowan_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Scoot",
@@ -2000,6 +2285,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Scoot_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sheldon",
@@ -2007,6 +2293,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sheldon_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ribbot",
@@ -2014,6 +2301,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ribbot_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rod",
@@ -2021,6 +2309,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rod_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Roald",
@@ -2028,6 +2317,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Roald_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rory",
@@ -2035,6 +2325,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rory_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tank",
@@ -2042,6 +2333,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tank_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Teddy",
@@ -2049,6 +2341,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Teddy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sterling",
@@ -2056,6 +2349,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Sterling_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Stinky",
@@ -2063,6 +2357,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Stinky_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tad",
@@ -2070,6 +2365,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tad_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tybalt",
@@ -2077,6 +2373,7 @@ let Villagers = [
 		personality: "Jock",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tybalt_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Jeremiah",
@@ -2084,6 +2381,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Jeremiah_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Joey",
@@ -2091,6 +2389,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Joey_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hornsby",
@@ -2098,6 +2397,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hornsby_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hopkins",
@@ -2105,6 +2405,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hopkins_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hugh",
@@ -2112,6 +2413,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hugh_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Jacob",
@@ -2119,6 +2421,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Jacob_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Drake",
@@ -2126,6 +2429,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Drake_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Drago",
@@ -2133,6 +2437,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Drago_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Doc",
@@ -2140,6 +2445,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Doc_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Derwin",
@@ -2147,6 +2453,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Derwin_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Deli",
@@ -2154,6 +2461,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Deli_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Dizzy",
@@ -2161,6 +2469,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Dizzy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cranston",
@@ -2168,6 +2477,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cranston_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cube",
@@ -2175,6 +2485,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cube_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Erik",
@@ -2182,6 +2493,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Erik_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Egbert",
@@ -2189,6 +2501,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Egbert_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Elmer",
@@ -2196,6 +2509,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Elmer_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Filbert",
@@ -2203,6 +2517,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Filbert_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bob",
@@ -2210,6 +2525,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bob_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Biskit",
@@ -2217,6 +2533,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Biskit_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Big Top",
@@ -2224,6 +2541,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Big Top_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Barold",
@@ -2231,6 +2549,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Barold_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Beau",
@@ -2238,6 +2557,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Beau_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Benedict",
@@ -2245,6 +2565,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Benedict_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Benjamin",
@@ -2252,6 +2573,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Benjamin_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Anchovy",
@@ -2259,6 +2581,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Anchovy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Al",
@@ -2266,6 +2589,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Al_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Alfonso",
@@ -2273,6 +2597,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Alfonso_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Bones",
@@ -2280,6 +2605,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Bones_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Boomer",
@@ -2287,6 +2613,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Boomer_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Broccolo",
@@ -2294,6 +2621,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Broccolo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Chester",
@@ -2301,6 +2629,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Chester_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Clyde",
@@ -2308,6 +2637,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Clyde_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Clay",
@@ -2315,6 +2645,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Clay_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Claude",
@@ -2322,6 +2653,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Claude_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Cole",
@@ -2329,6 +2661,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Cole_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Punchy",
@@ -2336,6 +2669,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Punchy_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pudge",
@@ -2343,6 +2677,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pudge_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Puck",
@@ -2350,6 +2685,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Puck_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Prince",
@@ -2357,6 +2693,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Prince_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Nate",
@@ -2364,6 +2701,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Nate_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ozzie",
@@ -2371,6 +2709,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ozzie_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Papi",
@@ -2378,6 +2717,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Papi_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Paolo",
@@ -2385,6 +2725,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Paolo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lucky",
@@ -2392,6 +2733,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lucky_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Marcel",
@@ -2399,6 +2741,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Marcel_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Moe",
@@ -2406,6 +2749,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Moe_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Spork",
@@ -2413,6 +2757,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Spork_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Simon",
@@ -2420,6 +2765,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Simon_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Sherb",
@@ -2427,6 +2773,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Sherb_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rex",
@@ -2434,6 +2781,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rex_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Raddle",
@@ -2441,6 +2789,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Raddle_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rodeo",
@@ -2448,6 +2797,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rodeo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Stu",
@@ -2455,6 +2805,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Stu_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Stitches",
@@ -2462,6 +2813,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Stitches_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tucker",
@@ -2469,6 +2821,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tucker_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Weber",
@@ -2476,6 +2829,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Weber_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Wade",
@@ -2483,6 +2837,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Wade_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Walker",
@@ -2490,6 +2845,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Walker_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Zucker",
@@ -2497,6 +2853,7 @@ let Villagers = [
 		personality: "Lazy",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Zucker_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ken",
@@ -2504,6 +2861,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ken_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Keaton",
@@ -2511,6 +2869,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Keaton_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Julian",
@@ -2518,6 +2877,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Julian_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Huck",
@@ -2525,6 +2885,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Huck_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Henry",
@@ -2532,6 +2893,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Henry_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hippeux",
@@ -2539,6 +2901,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hippeux_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Jacques",
@@ -2546,6 +2909,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Jacques_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Graham",
@@ -2553,6 +2917,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Graham_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Hans",
@@ -2560,6 +2925,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Hans_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Curlos",
@@ -2567,6 +2933,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Curlos_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Eugene",
@@ -2574,6 +2941,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Eugene_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Ed",
@@ -2581,6 +2949,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Ed_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Beardo",
@@ -2588,6 +2957,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Beardo_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Chops",
@@ -2595,6 +2965,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Chops_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Chadder",
@@ -2602,6 +2973,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Chadder_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Colton",
@@ -2609,6 +2981,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Colton_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Phil",
@@ -2616,6 +2989,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Phil_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Pietro",
@@ -2623,6 +2997,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Pietro_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Olaf",
@@ -2630,6 +3005,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Olaf_s poster.png",
+		liked: false,
 	},
 	{
 		name: "O'Hare",
@@ -2637,6 +3013,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-O_hare_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lucha",
@@ -2644,6 +3021,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lucha_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lionel",
@@ -2651,6 +3029,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lionel_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Lopez",
@@ -2658,6 +3037,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Lopez_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kidd",
@@ -2665,6 +3045,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kidd_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Klaus",
@@ -2672,6 +3053,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Klaus_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Kyle",
@@ -2679,6 +3061,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Kyle_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Leopold",
@@ -2686,6 +3069,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Leopold_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Marshal",
@@ -2693,6 +3077,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Marshal_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Shep",
@@ -2700,6 +3085,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Shep_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Quillson",
@@ -2707,6 +3093,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Quillson_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Raymond",
@@ -2714,6 +3101,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: false,
 		poster: "VillagerPosters/NH-Poster-Raymond_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Rodney",
@@ -2721,6 +3109,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Rodney_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Tex",
@@ -2728,6 +3117,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Tex_s poster.png",
+		liked: false,
 	},
 	{
 		name: "Zell",
@@ -2735,6 +3125,7 @@ let Villagers = [
 		personality: "Smug",
 		amiibo: true,
 		poster: "VillagerPosters/NH-Poster-Zell_s poster.png",
+		liked: false,
 	},
 ];
 
